@@ -17,11 +17,10 @@ for STYLE in "${STYLES[@]}"; do
         mkdir "${RESOURCES_DIR}"
     fi
 
-    for FILE in "${ICONS_DIR}"/*; do
+    for FILE in "${ICONS_DIR}/"*.svg; do
       FILENAME=${FILE##*/}
 
-      if [ "$FILENAME" == ".gitignore" ]
-      then
+      if [ "$FILENAME" == ".gitignore" ]; then
         break
       fi
 
@@ -29,7 +28,7 @@ for STYLE in "${STYLES[@]}"; do
       cp "${FILE}" "${RESOURCES_DIR}/${FILENAME}"
 
       CLASS='<svg fill="currentColor"'
-      sed -i '' "s/<svg/${CLASS}/" "${RESOURCES_DIR}/${FILENAME}"
+      sed -i "s/<svg/${CLASS}/" "${RESOURCES_DIR}/${FILENAME}"
     done
 done
 
