@@ -9,6 +9,7 @@
 /.github            export-ignore
 /.gitignore         export-ignore
 /.styleci.yml       export-ignore
+/bin                export-ignore
 /docs               export-ignore
 /dist               export-ignore
 /phpstan.neon.dist  export-ignore
