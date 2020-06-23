@@ -34,8 +34,8 @@ jobs:
 
     - name: Output versions
       run: |
-        echo "Current release: ${CURRENT_VERSION}"
-        echo "Latest release: ${LATEST_VERSION}"
+        echo "Current release: ${{ env.CURRENT_VERSION }}"
+        echo "Latest release: ${{ env.LATEST_VERSION }}"
 
     - name: Update to latest version
       if: env.CURRENT_VERSION != env.LATEST_VERSION
