@@ -1,0 +1,54 @@
+name: Auto Update
+
+on:
+  schedule:
+  - cron: '0 0 * * *'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    name: Update Font Awesome
+
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - id: current-version
+      name: Get current version
+      uses: juliangruber/read-file-action@v1
+      with:
+        path: ./.version
+
+    - id: latest-version
+      name: Get latest Font Awesome version
+      uses: pozetroninc/github-action-get-latest-release@v0.4.0
+      with:
+        repository: FortAwesome/Font-Awesome
+
+    - name: Output versions
+      run: |
+        echo "Current release: ${{ steps.current-version.outputs.content }}"
+        echo "Latest release: ${{ steps.latest-version.outputs.release }}"
+
+    - name: Update to latest version
+      if: steps.current-version.outputs.content != steps.latest-version.outputs.release
+      run: LATEST_VERSION="${{ steps.latest-version.outputs.release }}" ./bin/update.sh
+
+    - name: Compile icons to resources directory
+      if: steps.current-version.outputs.content != steps.latest-version.outputs.release
+      run: LATEST_VERSION="${{ steps.latest-version.outputs.release }}" ./bin/compile.sh
+
+    - name: Update version in ".version"
+      if: steps.current-version.outputs.content != steps.latest-version.outputs.release
+      run: echo ${{ steps.latest-version.outputs.release }}>./.version
+
+    - name: Create PR for latest version
+      if: steps.current-version.outputs.content != steps.latest-version.outputs.release
+      uses: peter-evans/create-pull-request@v2
+      with:
+        commit-message: Update to Font Awesome v${{ steps.latest-version.outputs.release }}
+        committer: GitHub Action <noreply@github.com>
+        author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+        title: Update to Font Awesome v${{ steps.latest-version.outputs.release }}

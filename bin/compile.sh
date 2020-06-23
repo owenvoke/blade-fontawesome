@@ -3,8 +3,8 @@
 set -e
 
 DIRECTORY=$(cd "$(dirname "$0")" && pwd)
-ICONS_ROOT=$DIRECTORY/../dist
-RESOURCES_ROOT=$DIRECTORY/../resources/svg
+ICONS_ROOT="${DIRECTORY}/../dist"
+RESOURCES_ROOT="${DIRECTORY}/../resources/svg"
 STYLES=(brands regular solid)
 
 echo "Compiling Font Awesome..."
@@ -17,11 +17,10 @@ for STYLE in "${STYLES[@]}"; do
         mkdir "${RESOURCES_DIR}"
     fi
 
-    for FILE in "${ICONS_DIR}"/*; do
+    for FILE in "${ICONS_DIR}/"*.svg; do
       FILENAME=${FILE##*/}
 
-      if [ "$FILENAME" == ".gitignore" ]
-      then
+      if [ "$FILENAME" == ".gitignore" ]; then
         break
       fi
 
@@ -29,7 +28,7 @@ for STYLE in "${STYLES[@]}"; do
       cp "${FILE}" "${RESOURCES_DIR}/${FILENAME}"
 
       CLASS='<svg fill="currentColor"'
-      sed -i '' "s/<svg/${CLASS}/" "${RESOURCES_DIR}/${FILENAME}"
+      sed -i "s/<svg/${CLASS}/" "${RESOURCES_DIR}/${FILENAME}"
     done
 done
 
