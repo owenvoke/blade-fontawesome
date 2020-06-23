@@ -27,28 +27,33 @@ jobs:
       with:
         repository: FortAwesome/Font-Awesome
 
+    - name: Add versions to environment
+      run: |
+        echo "::set-env name=CURRENT_VERSION::${{ steps.current-version.outputs.content }}"
+        echo "::set-env name=LATEST_VERSION::${{ steps.latest-version.outputs.release }}"
+
     - name: Output versions
       run: |
-        echo "Current release: ${{ steps.current-version.outputs.content }}"
-        echo "Latest release: ${{ steps.latest-version.outputs.release }}"
+        echo "Current release: ${CURRENT_VERSION}"
+        echo "Latest release: ${LATEST_VERSION}"
 
     - name: Update to latest version
-      if: steps.current-version.outputs.content != steps.latest-version.outputs.release
-      run: LATEST_VERSION="${{ steps.latest-version.outputs.release }}" ./bin/update.sh
+      if: env.CURRENT_VERSION != env.LATEST_VERSION
+      run: ./bin/update.sh
 
     - name: Compile icons to resources directory
-      if: steps.current-version.outputs.content != steps.latest-version.outputs.release
-      run: LATEST_VERSION="${{ steps.latest-version.outputs.release }}" ./bin/compile.sh
+      if: env.CURRENT_VERSION != env.LATEST_VERSION
+      run: ./bin/compile.sh
 
     - name: Update version in ".version"
-      if: steps.current-version.outputs.content != steps.latest-version.outputs.release
-      run: echo ${{ steps.latest-version.outputs.release }}>./.version
+      if: env.CURRENT_VERSION != env.LATEST_VERSION
+      run: echo ${{ env.LATEST_VERSION }}>./.version
 
     - name: Create PR for latest version
-      if: steps.current-version.outputs.content != steps.latest-version.outputs.release
+      if: env.CURRENT_VERSION != env.LATEST_VERSION
       uses: peter-evans/create-pull-request@v2
       with:
-        commit-message: Update to Font Awesome v${{ steps.latest-version.outputs.release }}
+        commit-message: Update to Font Awesome v${{ env.LATEST_VERSION }}
         committer: GitHub Action <noreply@github.com>
         author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-        title: Update to Font Awesome v${{ steps.latest-version.outputs.release }}
+        title: Update to Font Awesome v${{ env.LATEST_VERSION }}
