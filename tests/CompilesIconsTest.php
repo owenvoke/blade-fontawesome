@@ -24,4 +24,3 @@ it('can add styles to icons', function () {
 
     assertMatchesSnapshot($result);
 });
-

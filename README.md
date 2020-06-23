@@ -103,14 +103,14 @@ Read more about Treeware at [treeware.earth][link-treeware].
 [ico-version]: https://img.shields.io/packagist/v/owenvoke/blade-fontawesome.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-github-actions]: https://img.shields.io/github/workflow/status/owenvoke/blade-fontawesome/CI.svg?style=flat-square
-[ico-styleci]: https://styleci.io/repos/:styleci/shield
+[ico-styleci]: https://styleci.io/repos/274363158/shield
 [ico-code-coverage]: https://img.shields.io/codecov/c/github/owenvoke/blade-fontawesome.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/owenvoke/blade-fontawesome.svg?style=flat-square
 [ico-treeware-gifting]: https://img.shields.io/badge/Treeware-%F0%9F%8C%B3-lightgreen?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/owenvoke/blade-fontawesome
 [link-github-actions]: https://github.com/owenvoke/blade-fontawesome/actions
-[link-styleci]: https://styleci.io/repos/:styleci
+[link-styleci]: https://styleci.io/repos/274363158
 [link-code-coverage]: https://codecov.io/gh/owenvoke/blade-fontawesome
 [link-downloads]: https://packagist.org/packages/owenvoke/blade-fontawesome
 [link-treeware]: https://treeware.earth
