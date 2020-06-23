@@ -3,8 +3,8 @@
 set -e
 
 DIRECTORY=$(cd "$(dirname "$0")" && pwd)
-ICONS_ROOT=$DIRECTORY/../dist
-RESOURCES_ROOT=$DIRECTORY/../resources/svg
+ICONS_ROOT="${DIRECTORY}/../dist"
+RESOURCES_ROOT="${DIRECTORY}/../resources/svg"
 STYLES=(brands regular solid)
 
 echo "Compiling Font Awesome..."
