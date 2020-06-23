@@ -44,7 +44,7 @@ jobs:
       if: steps.current-version.outputs.content != steps.latest-version.outputs.release
       run: echo ${{ steps.latest-version.outputs.release }}>./.version
 
-    - name: Create PR for v${{ steps.latest-version.outputs.release }}
+    - name: Create PR for latest version
       if: steps.current-version.outputs.content != steps.latest-version.outputs.release
       uses: peter-evans/create-pull-request@v2
       with:
