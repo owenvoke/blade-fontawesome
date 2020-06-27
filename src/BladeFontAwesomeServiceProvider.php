@@ -11,20 +11,22 @@ final class BladeFontAwesomeServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        $this->app->make(Factory::class)->add('fontawesome-brands', [
-            'path' => __DIR__.'/../resources/svg/brands',
-            'prefix' => 'fab',
-        ]);
-
-        $this->app->make(Factory::class)->add('fontawesome-regular', [
-            'path' => __DIR__.'/../resources/svg/regular',
-            'prefix' => 'far',
-        ]);
-
-        $this->app->make(Factory::class)->add('fontawesome-solid', [
-            'path' => __DIR__.'/../resources/svg/solid',
-            'prefix' => 'fas',
-        ]);
+        $this->callAfterResolving(Factory::class, function (Factory $factory) {
+            $factory->add('fontawesome-brands', [
+                'path' => __DIR__ . '/../resources/svg/brands',
+                'prefix' => 'fab',
+            ]);
+            
+            $factory->add('fontawesome-regular', [
+                'path' => __DIR__ . '/../resources/svg/regular',
+                'prefix' => 'far',
+            ]);
+            
+            $factory->add('fontawesome-solid', [
+                'path' => __DIR__ . '/../resources/svg/solid',
+                'prefix' => 'fas',
+            ]);
+        });
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
