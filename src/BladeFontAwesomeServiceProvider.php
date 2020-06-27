@@ -16,12 +16,12 @@ final class BladeFontAwesomeServiceProvider extends ServiceProvider
                 'path' => __DIR__.'/../resources/svg/brands',
                 'prefix' => 'fab',
             ]);
-            
+
             $factory->add('fontawesome-regular', [
                 'path' => __DIR__.'/../resources/svg/regular',
                 'prefix' => 'far',
             ]);
-            
+
             $factory->add('fontawesome-solid', [
                 'path' => __DIR__.'/../resources/svg/solid',
                 'prefix' => 'fas',
