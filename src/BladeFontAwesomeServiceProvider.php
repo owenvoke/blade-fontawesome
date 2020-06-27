@@ -13,17 +13,17 @@ final class BladeFontAwesomeServiceProvider extends ServiceProvider
     {
         $this->callAfterResolving(Factory::class, function (Factory $factory) {
             $factory->add('fontawesome-brands', [
-                'path' => __DIR__ . '/../resources/svg/brands',
+                'path' => __DIR__.'/../resources/svg/brands',
                 'prefix' => 'fab',
             ]);
             
             $factory->add('fontawesome-regular', [
-                'path' => __DIR__ . '/../resources/svg/regular',
+                'path' => __DIR__.'/../resources/svg/regular',
                 'prefix' => 'far',
             ]);
             
             $factory->add('fontawesome-solid', [
-                'path' => __DIR__ . '/../resources/svg/solid',
+                'path' => __DIR__.'/../resources/svg/solid',
                 'prefix' => 'fas',
             ]);
         });
