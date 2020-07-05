@@ -26,6 +26,8 @@ final class BladeFontAwesomeServiceProvider extends ServiceProvider
                 'path' => __DIR__.'/../resources/svg/solid',
                 'prefix' => 'fas',
             ]);
+
+            $factory->registerComponents();
         });
 
         if ($this->app->runningInConsole()) {
