@@ -9,7 +9,7 @@ use Illuminate\Support\ServiceProvider;
 
 final class BladeFontAwesomeServiceProvider extends ServiceProvider
 {
-    public function boot(): void
+    public function register(): void
     {
         $this->app->make(Factory::class)->add('fontawesome-brands', [
             'path' => __DIR__.'/../resources/svg/brands',
@@ -25,7 +25,10 @@ final class BladeFontAwesomeServiceProvider extends ServiceProvider
             'path' => __DIR__.'/../resources/svg/solid',
             'prefix' => 'fas',
         ]);
+    }
 
+    public function boot(): void
+    {
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../resources/svg' => public_path('vendor/blade-fontawesome'),
