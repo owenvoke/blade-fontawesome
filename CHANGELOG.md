@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ## Unreleased
 
+## v1.1.1 - 2020-07-10
+
+### Fixed
+- Fix `callAfterResolving` ([#9](https://github.com/owenvoke/blade-fontawesome/pull/9))
+
 ## v1.1.0 - 2020-06-28
 
 ### Changed
