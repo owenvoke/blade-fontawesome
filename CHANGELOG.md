@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ## Unreleased
 
+## v1.2.0 - 2020-07-16
+
+### Changed
+- Update to Font Awesome v5.14.0 ([#10](https://github.com/owenvoke/blade-fontawesome/pull/10))
+- Add body and branch name to auto-update PRs ([4dc904d](https://github.com/owenvoke/blade-fontawesome/commit/4dc904d6069bf7eb5c9d122de080b15f830d87b2))
+
+### Fixed
+- Remove trailing linebreaks in SVGs to match source ([#10](https://github.com/owenvoke/blade-fontawesome/pull/10))
+
 ## v1.1.1 - 2020-07-10
 
 ### Fixed
