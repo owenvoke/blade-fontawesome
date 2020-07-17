@@ -11,7 +11,9 @@
     "require-dev": {
         "orchestra/testbench": "^5.0",
         "pestphp/pest": "^0.2",
-        "spatie/pest-plugin-snapshots": "^0.2.0"
+        "phpstan/phpstan": "^0.12.31",
+        "spatie/pest-plugin-snapshots": "^0.2.0",
+        "symfony/var-dumper": "^5.1"
     },
     "autoload": {
         "psr-4": {
