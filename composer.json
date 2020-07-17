@@ -29,9 +29,11 @@
     "scripts": {
         "lint": "rector process src",
         "test:lint": "rector process src --dry-run",
+        "test:types": "phpstan analyse --ansi --memory-limit=0",
         "test:unit": "pest",
         "test": [
             "@test:lint",
+            "@test:types",
             "@test:unit"
         ]
     },
