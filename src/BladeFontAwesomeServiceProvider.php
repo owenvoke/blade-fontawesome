@@ -9,22 +9,26 @@ use Illuminate\Support\ServiceProvider;
 
 final class BladeFontAwesomeServiceProvider extends ServiceProvider
 {
+    private const PATH = 'path';
+
+    private const PREFIX = 'prefix';
+
     public function register(): void
     {
         $this->callAfterResolving(Factory::class, function (Factory $factory) {
             $factory->add('fontawesome-brands', [
-                'path' => __DIR__.'/../resources/svg/brands',
-                'prefix' => 'fab',
+                self::PATH => __DIR__.'/../resources/svg/brands',
+                self::PREFIX => 'fab',
             ]);
 
             $factory->add('fontawesome-regular', [
-                'path' => __DIR__.'/../resources/svg/regular',
-                'prefix' => 'far',
+                self::PATH => __DIR__.'/../resources/svg/regular',
+                self::PREFIX => 'far',
             ]);
 
             $factory->add('fontawesome-solid', [
-                'path' => __DIR__.'/../resources/svg/solid',
-                'prefix' => 'fas',
+                self::PATH => __DIR__.'/../resources/svg/solid',
+                self::PREFIX => 'fas',
             ]);
         });
     }
