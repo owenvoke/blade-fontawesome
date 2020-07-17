@@ -1,18 +1,18 @@
-name: CI
+name: Tests
 
 on: ['push', 'pull_request']
 
 jobs:
   ci:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
 
     strategy:
-      fail-fast: true
       matrix:
+        os: [ubuntu-latest]
         php: [7.4]
         dependency-version: [prefer-lowest, prefer-stable]
 
-    name: CI - PHP ${{ matrix.php }} (${{ matrix.dependency-version }})
+    name: PHP ${{ matrix.php }} (${{ matrix.dependency-version }})
 
     steps:
 
@@ -23,17 +23,16 @@ jobs:
       uses: shivammathur/setup-php@v2
       with:
         php-version: ${{ matrix.php }}
-        extensions: mbstring, zip
         tools: composer:v2
-        coverage: pcov
+        coverage: none
+
+    - name: Setup Problem Matchers
+      run: |
+        echo "::add-matcher::${{ runner.tool_cache }}/php.json"
+        echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
     - name: Install Composer dependencies
       run: composer update --${{ matrix.dependency-version }} --no-interaction --prefer-dist
 
-    - name: Unit Tests
-      run: vendor/bin/pest --colors=always --coverage-text --coverage-clover=coverage.clover
-
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v1
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
+    - name: Run Unit Tests
+      run: vendor/bin/pest --colors=always
