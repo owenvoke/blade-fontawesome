@@ -12,7 +12,7 @@
         "orchestra/testbench": "^5.0",
         "pestphp/pest": "^0.2",
         "phpstan/phpstan": "^0.12.31",
-        "rector/rector": "^0.7.48",
+        "rector/rector-prefixed": "^0.7.63",
         "spatie/pest-plugin-snapshots": "^0.2.0",
         "symfony/var-dumper": "^5.1"
     },
