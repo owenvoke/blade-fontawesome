@@ -5,17 +5,15 @@ on: ['push', 'pull_request']
 jobs:
   ci:
     runs-on: ${{ matrix.os }}
-
     strategy:
       matrix:
-        os: [ubuntu-latest]
-        php: [7.4]
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        php: ['7.4', '8.0']
         dependency-version: [prefer-lowest, prefer-stable]
 
-    name: PHP ${{ matrix.php }} (${{ matrix.dependency-version }})
+    name: PHP ${{ matrix.php }} - ${{ matrix.os }} - ${{ matrix.dependency-version }}
 
     steps:
-
     - name: Checkout
       uses: actions/checkout@v2
 
@@ -26,13 +24,18 @@ jobs:
         tools: composer:v2
         coverage: none
 
-    - name: Setup Problem Matchers
+    - name: Setup Problem Matches
       run: |
         echo "::add-matcher::${{ runner.tool_cache }}/php.json"
         echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
-    - name: Install Composer dependencies
-      run: composer update --${{ matrix.dependency-version }} --no-interaction --prefer-dist
+    - name: Install PHP 7 dependencies
+      run: composer update --${{ matrix.dependency-version }} --no-interaction --no-progress
+      if: "matrix.php < 8"
 
-    - name: Run Unit Tests
+    - name: Install PHP 8 dependencies
+      run: composer update --${{ matrix.dependency-version }} --ignore-platform-req=php --no-interaction --no-progress
+      if: "matrix.php >= 8"
+
+    - name: Unit Tests
       run: vendor/bin/pest --colors=always
