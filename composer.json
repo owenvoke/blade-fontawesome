@@ -10,10 +10,10 @@
     },
     "require-dev": {
         "orchestra/testbench": "^5.0",
-        "pestphp/pest": "^0.2",
+        "pestphp/pest": "^0.3",
         "phpstan/phpstan": "^0.12.36",
         "rector/rector-prefixed": "^0.7.63",
-        "spatie/pest-plugin-snapshots": "^0.2.0",
+        "spatie/pest-plugin-snapshots": "^0.3",
         "symfony/var-dumper": "^5.1"
     },
     "autoload": {
