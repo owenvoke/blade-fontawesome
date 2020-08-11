@@ -2,7 +2,7 @@
 
 Contributions are **welcome** and will be fully **credited**.
 
-We accept contributions via Pull Requests on [Github](https://github.com/owenvoke/:package_name).
+We accept contributions via Pull Requests on [Github](https://github.com/owenvoke/blade-fontawesome).
 
 ## Pull Requests
 
