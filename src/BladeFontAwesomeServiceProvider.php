@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace OwenVoke\BladeFontAwesome;
 
 use BladeUI\Icons\Factory;
-use OwenVoke\BladeFontAwesome\Commands\SyncProIconsCommand;
 use Illuminate\Support\ServiceProvider;
+use OwenVoke\BladeFontAwesome\Commands\SyncProIconsCommand;
 
 final class BladeFontAwesomeServiceProvider extends ServiceProvider
 {

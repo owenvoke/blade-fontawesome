@@ -22,7 +22,7 @@ final class SyncProIconsCommand extends Command
 
         $fullSourcePath = "{$this->directory}/node_modules/@fortawesome/fontawesome-pro/svgs";
 
-        if (!is_dir($fullSourcePath)) {
+        if (! is_dir($fullSourcePath)) {
             $this->warn("Unable to find Font Awesome Pro SVGs in '{$this->directory}'");
 
             return 1;
@@ -30,13 +30,13 @@ final class SyncProIconsCommand extends Command
 
         $destinationPath = resource_path('icons/blade-fontawesome');
 
-        if (!File::copyDirectory($fullSourcePath, $destinationPath)) {
+        if (! File::copyDirectory($fullSourcePath, $destinationPath)) {
             $this->warn("Unable to find Font Awesome Pro SVGs in '{$this->directory}'");
 
             return 1;
         }
 
-        $this->info("Successfully updated Font Awesome Pro SVGs");
+        $this->info('Successfully updated Font Awesome Pro SVGs');
         $this->line("- From: {$fullSourcePath}");
         $this->line("- To: {$destinationPath}");
 
