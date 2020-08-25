@@ -2,8 +2,10 @@
 
 namespace OwenVoke\BladeFontAwesome\Commands;
 
+use DirectoryIterator;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
+use OwenVoke\BladeFontAwesome\Actions\CompileSvgsAction;
 
 final class SyncProIconsCommand extends Command
 {
@@ -36,9 +38,23 @@ final class SyncProIconsCommand extends Command
             return 1;
         }
 
+        $sets = [];
+
+        foreach (new DirectoryIterator($destinationPath) as $directory) {
+            if ($directory->isDot() || ! $directory->isDir()) {
+                continue;
+            }
+
+            (new CompileSvgsAction($directory->getPathname(), $directory->getPathname()))->execute();
+
+            $sets[] = $directory->getBasename();
+        }
+
         $this->info('Successfully updated Font Awesome Pro SVGs');
         $this->line("- From: {$fullSourcePath}");
         $this->line("- To: {$destinationPath}");
+
+        $this->line("\nSets copied: ".implode(', ', $sets));
 
         return 0;
     }
