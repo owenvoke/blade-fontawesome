@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ## Unreleased
 
+## v1.3.0 - 2020-09-09
+
+### Added
+- Add support for PHP 8 ([#13](https://github.com/owenvoke/blade-fontawesome/pull/13))
+- Add support for Laravel 8 ([#16](https://github.com/owenvoke/blade-fontawesome/pull/16))
+
 ## v1.2.0 - 2020-07-16
 
 ### Changed
