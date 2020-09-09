@@ -6,10 +6,10 @@
     "require": {
         "php": "^7.4 || ^8.0",
         "blade-ui-kit/blade-icons": "^0.4.3",
-        "illuminate/support": "^7.14"
+        "illuminate/support": "^7.14 || ^8.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^5.0",
+        "orchestra/testbench": "^5.0 || ^6.0",
         "pestphp/pest": "^0.3",
         "phpstan/phpstan": "^0.12.36",
         "rector/rector-prefixed": "^0.7.63",
