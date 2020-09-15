@@ -58,6 +58,18 @@ Then use them in your views like:
 <img src="{{ asset('vendor/blade-fontawesome/solid/cloud.svg') }}" width="10" height="10"/>
 ```
 
+### Font Awesome Pro
+
+Blade Font Awesome supports pro icons using npm for downloads.
+
+To use this, [install Font Awesome Pro](https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers#installing-pro) using `npm i --save @fortawesome/fontawesome-pro`, and then run the following Artisan command to add the icons to your `resources` path.
+
+```bash
+php artisan blade-fontawesome:sync-pro
+```
+
+Blade Font Awesome will then automatically detect the pro icons under the `resources/icons/blade-fontawesome` path, and use them.
+
 ### Blade Icons
 
 Blade Font Awesome uses Blade Icons under the hood. Please refer to [the Blade Icons readme](https://github.com/blade-ui-kit/blade-icons) for additional functionality.
