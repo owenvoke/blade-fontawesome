@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ## Unreleased
 
+## v1.4.0 - 2020-09-15
+
+### Added
+- Add support for Font Awesome Pro icons ([#14](https://github.com/owenvoke/blade-fontawesome/pull/14))
+
 ## v1.3.0 - 2020-09-09
 
 ### Added
