@@ -68,7 +68,7 @@ To use this, [install Font Awesome Pro](https://fontawesome.com/how-to-use/on-th
 php artisan blade-fontawesome:sync-pro
 ```
 
-Blade Font Awesome will then automatically detect the pro icons under the `resources/icons/blade-fontawesome` path, and use them.
+Blade Font Awesome will then automatically detect and use the pro icons under the `resources/icons/blade-fontawesome` path.
 
 ### Blade Icons
 
