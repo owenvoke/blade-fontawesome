@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ## Unreleased
 
+## v1.5.0 - 2020
+
+### Changed
+- Update to Font Awesome v5.15.0 ([#17](https://github.com/owenvoke/blade-fontawesome/pull/17))
+
 ## v1.4.0 - 2020-09-15
 
 ### Added
