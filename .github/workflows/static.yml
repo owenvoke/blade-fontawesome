@@ -20,10 +20,10 @@ jobs:
         coverage: none
 
     - name: Install Dependencies
-      run: composer update --no-interaction --prefer-dist --no-progress
+      run: composer update --no-interaction --prefer-dist --no-progress --ansi
 
     - name: Run Rector
-      run: vendor/bin/rector process src --dry-run
+      run: vendor/bin/rector process src --dry-run --ansi
 
   phpstan:
     runs-on: ubuntu-latest
@@ -46,7 +46,7 @@ jobs:
         coverage: none
 
     - name: Install Dependencies
-      run: composer update --prefer-stable --no-interaction --prefer-dist --no-progress
+      run: composer update --prefer-stable --no-interaction --prefer-dist --no-progress --ansi
 
     - name: Run PHPStan
-      run: vendor/bin/phpstan analyse --no-progress
+      run: vendor/bin/phpstan analyse --no-progress --ansi
