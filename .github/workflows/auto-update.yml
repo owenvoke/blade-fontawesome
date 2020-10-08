@@ -29,8 +29,8 @@ jobs:
 
     - name: Add versions to environment
       run: |
-        echo "::set-env name=CURRENT_VERSION::${{ steps.current-version.outputs.content }}"
-        echo "::set-env name=LATEST_VERSION::${{ steps.latest-version.outputs.release }}"
+        echo "CURRENT_VERSION=${{ steps.current-version.outputs.content }}" >> $GITHUB_ENV
+        echo "LATEST_VERSION=${{ steps.latest-version.outputs.release }}" >> $GITHUB_ENV
 
     - name: Output versions
       run: |
