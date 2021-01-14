@@ -3,28 +3,6 @@ name: Static Analysis
 on: ['push', 'pull_request']
 
 jobs:
-  rector:
-    runs-on: ubuntu-latest
-
-    name: Rector
-
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: 7.4
-        tools: composer:v2
-        coverage: none
-
-    - name: Install Dependencies
-      run: composer update --no-interaction --prefer-dist --no-progress --ansi
-
-    - name: Run Rector
-      run: vendor/bin/rector process src --dry-run --ansi
-
   phpstan:
     runs-on: ubuntu-latest
 
