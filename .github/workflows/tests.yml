@@ -22,7 +22,7 @@ jobs:
       with:
         php-version: ${{ matrix.php }}
         extensions: fileinfo
-        tools: composer:v2
+        tools: composer
         coverage: none
 
     - name: Setup Problem Matches
