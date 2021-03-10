@@ -11,7 +11,7 @@
     "require-dev": {
         "orchestra/testbench": "^5.0 || ^6.0",
         "pestphp/pest": "^1.0",
-        "phpstan/phpstan": "^0.12.66",
+        "phpstan/phpstan": "^0.12.81",
         "spatie/pest-plugin-snapshots": "^1.0.1",
         "symfony/var-dumper": "^5.1"
     },
