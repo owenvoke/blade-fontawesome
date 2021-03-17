@@ -31,7 +31,8 @@
         "test": [
             "@test:types",
             "@test:unit"
-        ]
+        ],
+        "update:snapshots": "pest -d --update-snapshots"
     },
     "extra": {
         "laravel": {
