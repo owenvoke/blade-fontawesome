@@ -23,7 +23,7 @@ jobs:
 
     - id: latest-version
       name: Get latest Font Awesome version
-      uses: pozetroninc/github-action-get-latest-release@v0.4.0
+      uses: pozetroninc/github-action-get-latest-release@v0.5.0
       with:
         repository: FortAwesome/Font-Awesome
 
