@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ## Unreleased
 
+## v1.7.0 - 2021-03-22
+
+### Added
+- Add support for Blade Icons v1.x ([#22](https://github.com/owenvoke/blade-fontawesome/pull/22))
+
 ## v1.6.1 - 2021-03-17
 
 ### Changed
