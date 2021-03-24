@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ## Unreleased
 
+## v1.8.0 - 2021-03-24
+
+### Changed
+- Drop Laravel 7 support ([105bbf4](https://github.com/owenvoke/blade-fontawesome/commit/105bbf4e0a0af2b85af45a95c223e103480cd7a6))
+- Require Blade Icons 1.x ([105bbf4](https://github.com/owenvoke/blade-fontawesome/commit/105bbf4e0a0af2b85af45a95c223e103480cd7a6))
+
 ## v1.7.0 - 2021-03-22
 
 ### Added
