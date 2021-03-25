@@ -39,7 +39,7 @@ jobs:
 
     - name: Update to latest version
       if: env.CURRENT_VERSION != env.LATEST_VERSION
-      run: ./bin/update.sh
+      run: npm install "@fortawesome/fontawesome-free@${{ env.LATEST_VERSION }}" --save-dev
 
     - name: Compile icons to resources directory
       if: env.CURRENT_VERSION != env.LATEST_VERSION

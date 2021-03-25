@@ -1,7 +1,9 @@
 /build
 /dist
+/node_modules
 /vendor
 /.phpunit.result.cache
 /.php_cs.cache
 /composer.lock
 /phpunit.xml
+/package-lock.json

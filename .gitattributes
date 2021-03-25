@@ -12,6 +12,7 @@
 /bin                export-ignore
 /docs               export-ignore
 /dist               export-ignore
+/package.json       export-ignore
 /phpstan.neon.dist  export-ignore
 /phpunit.xml.dist   export-ignore
 /rector.php         export-ignore

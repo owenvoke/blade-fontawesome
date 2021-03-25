@@ -32,7 +32,11 @@
             "@test:types",
             "@test:unit"
         ],
-        "update:snapshots": "pest -d --update-snapshots"
+        "update:snapshots": "pest -d --update-snapshots",
+        "update:icons": [
+            "npm install",
+            "./bin/compile.sh"
+        ]
     },
     "extra": {
         "laravel": {

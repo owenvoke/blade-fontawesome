@@ -3,7 +3,7 @@
 set -e
 
 DIRECTORY=$(cd "$(dirname "$0")" && pwd)
-ICONS_ROOT="${DIRECTORY}/../dist"
+ICONS_ROOT="${DIRECTORY}/../node_modules/@fortawesome/fontawesome-free/svgs"
 RESOURCES_ROOT="${DIRECTORY}/../resources/svg"
 STYLES=(brands regular solid)
 
