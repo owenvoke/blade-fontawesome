@@ -24,6 +24,14 @@ Via Composer
 $ composer require owenvoke/blade-fontawesome
 ```
 
+## Configuration
+
+Blade Font Awesome also offers the ability to use features from Blade Icons like default classes, default attributes, etc. If you'd like to configure these, publish the `blade-fontawesome.php` config file:
+
+```bash
+php artisan vendor:publish --tag=blade-fontawesome-config
+```
+
 ## Usage
 
 Icons can be used a self-closing Blade components which will be compiled to SVG icons:

@@ -6,38 +6,34 @@ namespace OwenVoke\BladeFontAwesome;
 
 use BladeUI\Icons\Factory;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Contracts\Config\Repository;
+use Illuminate\Contracts\Container\Container;
 use OwenVoke\BladeFontAwesome\Commands\SyncProIconsCommand;
 
 final class BladeFontAwesomeServiceProvider extends ServiceProvider
 {
-    private const PATH = 'path';
-
-    private const PREFIX = 'prefix';
-
     public function register(): void
     {
-        $this->callAfterResolving(Factory::class, function (Factory $factory) {
+        $this->registerConfig();
+
+        $this->callAfterResolving(Factory::class, function (Factory$factory, Container $container) {
+            $config = $container->make('config');
+
             if (is_dir($proIconsPath = resource_path('icons/blade-fontawesome'))) {
-                $this->registerProIcons($factory, $proIconsPath);
+                $this->registerProIcons($factory, $proIconsPath, $config);
 
                 return;
             }
 
-            $factory->add('fontawesome-brands', [
-                self::PATH => __DIR__.'/../resources/svg/brands',
-                self::PREFIX => 'fab',
-            ]);
-
-            $factory->add('fontawesome-regular', [
-                self::PATH => __DIR__.'/../resources/svg/regular',
-                self::PREFIX => 'far',
-            ]);
-
-            $factory->add('fontawesome-solid', [
-                self::PATH => __DIR__.'/../resources/svg/solid',
-                self::PREFIX => 'fas',
-            ]);
+            $factory->add('fontawesome-brands', array_merge(['path' => __DIR__.'/../resources/svg/brands'], $config->get('blade-fontawesome.brands', [])));
+            $factory->add('fontawesome-regular', array_merge(['path' => __DIR__ . '/../resources/svg/regular'], $config->get('blade-fontawesome.regular', [])));
+            $factory->add('fontawesome-solid', array_merge(['path' => __DIR__ . '/../resources/svg/solid'], $config->get('blade-fontawesome.solid', [])));
         });
+    }
+
+    private function registerConfig(): void
+    {
+        $this->mergeConfigFrom(__DIR__ . '/../config/blade-fontawesome.php', 'blade-fontawesome');
     }
 
     public function boot(): void
@@ -47,37 +43,24 @@ final class BladeFontAwesomeServiceProvider extends ServiceProvider
                 __DIR__.'/../resources/svg' => public_path('vendor/blade-fontawesome'),
             ], 'blade-fontawesome');
 
+            $this->publishes([
+                __DIR__ . '/../config/blade-fontawesome.php' => $this->app->configPath('blade-fontawesome.php'),
+            ], 'blade-fontawesome-config');
+
             $this->commands([
                 SyncProIconsCommand::class,
             ]);
         }
     }
 
-    private function registerProIcons(Factory $factory, string $proIconsPath): void
+    private function registerProIcons(Factory $factory, string $proIconsPath, Repository $config): void
     {
-        $factory->add('fontawesome-brands', [
-            self::PATH => "{$proIconsPath}/brands",
-            self::PREFIX => 'fab',
-        ]);
+        $factory->add('fontawesome-brands', array_merge(['path' => "{$proIconsPath}/brands"], $config->get('blade-fontawesome.brands', [])));
+        $factory->add('fontawesome-regular', array_merge(['path' => "{$proIconsPath}/regular"], $config->get('blade-fontawesome.regular', [])));
+        $factory->add('fontawesome-solid', array_merge(['path' => "{$proIconsPath}/solid"], $config->get('blade-fontawesome.solid', [])));
 
-        $factory->add('fontawesome-duotone', [
-            self::PATH => "{$proIconsPath}/duotone",
-            self::PREFIX => 'fad',
-        ]);
-
-        $factory->add('fontawesome-light', [
-            self::PATH => "{$proIconsPath}/light",
-            self::PREFIX => 'fal',
-        ]);
-
-        $factory->add('fontawesome-regular', [
-            self::PATH => "{$proIconsPath}/regular",
-            self::PREFIX => 'far',
-        ]);
-
-        $factory->add('fontawesome-solid', [
-            self::PATH => "{$proIconsPath}/solid",
-            self::PREFIX => 'fas',
-        ]);
+        // Pro icon sets
+        $factory->add('fontawesome-light', array_merge(['path' => "{$proIconsPath}/light"], $config->get('blade-fontawesome.light', [])));
+        $factory->add('fontawesome-duotone', array_merge(['path' => "{$proIconsPath}/duotone"], $config->get('blade-fontawesome.duotone', [])));
     }
 }
