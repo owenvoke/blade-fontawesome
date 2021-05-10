@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace OwenVoke\BladeFontAwesome;
 
 use BladeUI\Icons\Factory;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Contracts\Container\Container;
+use Illuminate\Support\ServiceProvider;
 use OwenVoke\BladeFontAwesome\Commands\SyncProIconsCommand;
 
 final class BladeFontAwesomeServiceProvider extends ServiceProvider
@@ -16,7 +16,7 @@ final class BladeFontAwesomeServiceProvider extends ServiceProvider
     {
         $this->registerConfig();
 
-        $this->callAfterResolving(Factory::class, function (Factory$factory, Container $container) {
+        $this->callAfterResolving(Factory::class, function (Factory $factory, Container $container) {
             $config = $container->make('config');
 
             if (is_dir($proIconsPath = resource_path('icons/blade-fontawesome'))) {
@@ -26,14 +26,14 @@ final class BladeFontAwesomeServiceProvider extends ServiceProvider
             }
 
             $factory->add('fontawesome-brands', array_merge(['path' => __DIR__.'/../resources/svg/brands'], $config->get('blade-fontawesome.brands', [])));
-            $factory->add('fontawesome-regular', array_merge(['path' => __DIR__ . '/../resources/svg/regular'], $config->get('blade-fontawesome.regular', [])));
-            $factory->add('fontawesome-solid', array_merge(['path' => __DIR__ . '/../resources/svg/solid'], $config->get('blade-fontawesome.solid', [])));
+            $factory->add('fontawesome-regular', array_merge(['path' => __DIR__.'/../resources/svg/regular'], $config->get('blade-fontawesome.regular', [])));
+            $factory->add('fontawesome-solid', array_merge(['path' => __DIR__.'/../resources/svg/solid'], $config->get('blade-fontawesome.solid', [])));
         });
     }
 
     private function registerConfig(): void
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/blade-fontawesome.php', 'blade-fontawesome');
+        $this->mergeConfigFrom(__DIR__.'/../config/blade-fontawesome.php', 'blade-fontawesome');
     }
 
     public function boot(): void
@@ -44,7 +44,7 @@ final class BladeFontAwesomeServiceProvider extends ServiceProvider
             ], 'blade-fontawesome');
 
             $this->publishes([
-                __DIR__ . '/../config/blade-fontawesome.php' => $this->app->configPath('blade-fontawesome.php'),
+                __DIR__.'/../config/blade-fontawesome.php' => $this->app->configPath('blade-fontawesome.php'),
             ], 'blade-fontawesome-config');
 
             $this->commands([
