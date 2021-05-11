@@ -1,0 +1,13 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+use OwenVoke\BladeFontAwesome\Generator\Commands\GenerateCommand;
+use Symfony\Component\Console\Application;
+
+$application = new Application('bbi-updater', '1.0.0');
+$command = new GenerateCommand('Generate blade-fontawesome');
+$application->add($command);
+$application->setDefaultCommand($command->getName(), true);
+$application->run();

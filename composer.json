@@ -15,6 +15,12 @@
         "spatie/pest-plugin-snapshots": "^1.0.1",
         "symfony/var-dumper": "^5.1"
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "/Users/danpock/GitProjects/blade-icons"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "OwenVoke\\BladeFontAwesome\\": "src/"
@@ -22,6 +28,7 @@
     },
     "autoload-dev": {
         "psr-4": {
+            "OwenVoke\\BladeFontAwesome\\Generator\\": "generator/",
             "OwenVoke\\BladeFontAwesome\\Tests\\": "tests/"
         }
     },
