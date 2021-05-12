@@ -20,4 +20,5 @@ GenerateCommandBuilder::create('blade-fontawesome')
         $svgContent = str_replace('<svg ', '<svg fill="currentColor" ', $svgContent);
         file_put_contents($tempFilepath, $svgContent);
     })
+    ->clearDestinationDirectory()
     ->run();
