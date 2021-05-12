@@ -3,11 +3,27 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-use OwenVoke\BladeFontAwesome\Generator\Commands\GenerateCommand;
-use Symfony\Component\Console\Application;
+use BladeUI\Icons\Console\GenerateCommandBuilder;
 
-$application = new Application('bbi-updater', '1.0.0');
-$command = new GenerateCommand('Generate blade-fontawesome');
-$application->add($command);
-$application->setDefaultCommand($command->getName(), true);
-$application->run();
+GenerateCommandBuilder::create('blade-fontawesome')
+    ->fromNpmPackage('@fortawesome/fontawesome-free') // Optionally specify an `npm` package to load from
+    ->fromSourceSvgDirectory('/svgs') // Specify a directory, if an npm package isn't set, this can be anywhere
+    ->withIconSets([
+        'regular'   => 'far-',
+        'brands'    => 'fab-',
+        'solid'     => 'fas-',
+    ])
+    ->withSvgNormalisation(function (string $tempFilepath, string $iconSet) {
+        $doc = new DOMDocument();
+        $doc->load($tempFilepath);
+        /**
+         * @var DOMElement $svgElement
+         */
+        $svgElement = $doc->getElementsByTagName('svg')[0];
+        $svgElement->setAttribute('fill', 'currentColor');
+        $doc->save($tempFilepath);
+
+        $svgLine = trim(file($tempFilepath)[1]);
+        file_put_contents($tempFilepath, $svgLine);
+    })
+    ->run();

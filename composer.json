@@ -9,6 +9,7 @@
         "illuminate/support": "^8.0"
     },
     "require-dev": {
+        "ext-dom": "*",
         "orchestra/testbench": "^6.0",
         "pestphp/pest": "^1.0",
         "phpstan/phpstan": "^0.12.82",
@@ -28,7 +29,6 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "OwenVoke\\BladeFontAwesome\\Generator\\": "generator/",
             "OwenVoke\\BladeFontAwesome\\Tests\\": "tests/"
         }
     },
