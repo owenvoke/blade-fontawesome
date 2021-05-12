@@ -9,7 +9,6 @@
         "illuminate/support": "^8.0"
     },
     "require-dev": {
-        "ext-dom": "*",
         "orchestra/testbench": "^6.0",
         "pestphp/pest": "^1.0",
         "phpstan/phpstan": "^0.12.82",
@@ -18,8 +17,8 @@
     },
     "repositories": [
         {
-            "type": "path",
-            "url": "/Users/danpock/GitProjects/blade-icons"
+            "type": "vcs",
+            "url": "https://github.com/mallardduck/blade-icons"
         }
     ],
     "autoload": {
@@ -42,7 +41,7 @@
         "update:snapshots": "pest -d --update-snapshots",
         "update:icons": [
             "npm install",
-            "./bin/compile.sh"
+            "./generate"
         ]
     },
     "extra": {
