@@ -14,16 +14,9 @@ GenerateCommandBuilder::create('blade-fontawesome')
         'solid'     => 'fas-',
     ])
     ->withSvgNormalisation(function (string $tempFilepath, string $iconSet) {
-        $doc = new DOMDocument();
-        $doc->load($tempFilepath);
-        /**
-         * @var DOMElement $svgElement
-         */
-        $svgElement = $doc->getElementsByTagName('svg')[0];
-        $svgElement->setAttribute('fill', 'currentColor');
-        $doc->save($tempFilepath);
-
-        $svgLine = trim(file($tempFilepath)[1]);
-        file_put_contents($tempFilepath, $svgLine);
+        /** @var string $svgContent */
+        $svgContent = file_get_contents($tempFilepath);
+        $svgContent = str_replace('<svg ', '<svg fill="currentColor" ', $svgContent);
+        file_put_contents($tempFilepath, $svgContent);
     })
     ->run();
