@@ -17,8 +17,8 @@
     },
     "repositories": [
         {
-            "type": "vcs",
-            "url": "https://github.com/mallardduck/blade-icons"
+            "type": "path",
+            "url": "../blade-icons"
         }
     ],
     "autoload": {
@@ -41,7 +41,7 @@
         "update:snapshots": "pest -d --update-snapshots",
         "update:icons": [
             "npm install",
-            "./generate"
+            "./vendor/bin/blade-icons-generate"
         ]
     },
     "extra": {
