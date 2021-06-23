@@ -1,20 +1,29 @@
 <?php
 
-use BladeUI\Icons\Generation\IconGenerator;
-use BladeUI\Icons\Generation\IconSetConfig;
+$svgNormalization = static function (string $tempFilepath, array $iconSet) {
+    /** @var string $svgContent */
+    $svgContent = file_get_contents($tempFilepath);
+    $svgContent = str_replace('<svg ', '<svg fill="currentColor" ', $svgContent);
+    file_put_contents($tempFilepath, $svgContent);
+};
 
-return IconGenerator::create('blade-fontawesome')
-    ->fromNpm('@fortawesome/fontawesome-free') // Optionally specify an `npm` package to load from
-    ->directory('/svgs') // Specify a directory, if an npm package isn't set, this can be anywhere
-    ->withIconSets([
-        IconSetConfig::create('regular'),
-        IconSetConfig::create('brands'),
-        IconSetConfig::create('solid'),
-    ])
-    ->withSvgNormalisation(function (string $tempFilepath, IconSetConfig $iconSet) {
-        /** @var string $svgContent */
-        $svgContent = file_get_contents($tempFilepath);
-        $svgContent = str_replace('<svg ', '<svg fill="currentColor" ', $svgContent);
-        file_put_contents($tempFilepath, $svgContent);
-    })
-    ->safe();
+return [
+    [
+        'source' => __DIR__.'/../node_modules/@fortawesome/fontawesome-free/svgs/regular',
+        'destination' => __DIR__.'/../resources/svg/regular',
+        'after' => $svgNormalization,
+        'safe' => true,
+    ],
+    [
+        'source' => __DIR__.'/../node_modules/@fortawesome/fontawesome-free/svgs/brands',
+        'destination' => __DIR__.'/../resources/svg/brands',
+        'after' => $svgNormalization,
+        'safe' => true,
+    ],
+    [
+        'source' => __DIR__.'/../node_modules/@fortawesome/fontawesome-free/svgs/solid',
+        'destination' => __DIR__.'/../resources/svg/solid',
+        'after' => $svgNormalization,
+        'safe' => true,
+    ],
+];
