@@ -43,7 +43,7 @@ jobs:
 
     - name: Compile icons to resources directory
       if: env.CURRENT_VERSION != env.LATEST_VERSION
-      run: ./bin/compile.sh
+      run: ./vendor/bin/blade-icons-generate
 
     - name: Update version in ".version"
       if: env.CURRENT_VERSION != env.LATEST_VERSION
