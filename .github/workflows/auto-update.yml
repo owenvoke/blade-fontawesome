@@ -37,6 +37,18 @@ jobs:
         echo "Current release: ${{ env.CURRENT_VERSION }}"
         echo "Latest release: ${{ env.LATEST_VERSION }}"
 
+    - name: Setup PHP
+      if: env.CURRENT_VERSION != env.LATEST_VERSION
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: 7.4
+        tools: composer
+        coverage: none
+
+    - name: Install Dependencies
+      if: env.CURRENT_VERSION != env.LATEST_VERSION
+      run: composer update --prefer-stable --no-interaction --prefer-dist --no-progress --ansi
+
     - name: Update to latest version
       if: env.CURRENT_VERSION != env.LATEST_VERSION
       run: npm install "@fortawesome/fontawesome-free@${{ env.LATEST_VERSION }}" --save-dev
