@@ -1,6 +1,6 @@
 {
     "private": true,
     "devDependencies": {
-        "@fortawesome/fontawesome-free": "^5.15.3"
+        "@fortawesome/fontawesome-free": "^5.15.4"
     }
 }
