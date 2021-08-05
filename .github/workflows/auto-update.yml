@@ -63,11 +63,10 @@ jobs:
 
     - name: Create PR for latest version
       if: env.CURRENT_VERSION != env.LATEST_VERSION
-      uses: peter-evans/create-pull-request@v2
+      uses: peter-evans/create-pull-request@v3
       with:
         commit-message: "chore: update to Font Awesome v${{ env.LATEST_VERSION }}"
         committer: GitHub Action <noreply@github.com>
-        author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
         title: "chore: update to Font Awesome v${{ env.LATEST_VERSION }}"
         body: |
           This updates from [${{ env.CURRENT_VERSION }}](https://github.com/FortAwesome/Font-Awesome/releases/tag/${{ env.CURRENT_VERSION }}) to [${{ env.LATEST_VERSION }}](https://github.com/FortAwesome/Font-Awesome/releases/tag/${{ env.LATEST_VERSION }}).
