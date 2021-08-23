@@ -55,12 +55,42 @@ final class BladeFontAwesomeServiceProvider extends ServiceProvider
 
     private function registerProIcons(Factory $factory, string $proIconsPath, Repository $config): void
     {
-        $factory->add('fontawesome-brands', array_merge(['path' => "{$proIconsPath}/brands"], $config->get('blade-fontawesome.brands', [])));
-        $factory->add('fontawesome-regular', array_merge(['path' => "{$proIconsPath}/regular"], $config->get('blade-fontawesome.regular', [])));
-        $factory->add('fontawesome-solid', array_merge(['path' => "{$proIconsPath}/solid"], $config->get('blade-fontawesome.solid', [])));
+        $factory->add('fontawesome-brands', array_merge(
+            [
+                'path' => "{$proIconsPath}/brands",
+                'paths' => ["{$proIconsPath}/brands"]
+            ],
+            $config->get('blade-fontawesome.brands', [])
+        ));
+        $factory->add('fontawesome-regular', array_merge(
+            [
+                'path' => "{$proIconsPath}/regular",
+                'paths' => ["{$proIconsPath}/regular"]
+            ],
+            $config->get('blade-fontawesome.regular', [])
+        ));
+        $factory->add('fontawesome-solid', array_merge(
+            [
+                'path' => "{$proIconsPath}/solid",
+                'paths' => ["{$proIconsPath}/solid"]
+            ],
+            $config->get('blade-fontawesome.solid', [])
+        ));
 
         // Pro icon sets
-        $factory->add('fontawesome-light', array_merge(['path' => "{$proIconsPath}/light"], $config->get('blade-fontawesome.light', [])));
-        $factory->add('fontawesome-duotone', array_merge(['path' => "{$proIconsPath}/duotone"], $config->get('blade-fontawesome.duotone', [])));
+        $factory->add('fontawesome-light', array_merge(
+            [
+                'path' => "{$proIconsPath}/light",
+                'paths' => ["{$proIconsPath}/light"]
+            ],
+            $config->get('blade-fontawesome.light', [])
+        ));
+        $factory->add('fontawesome-duotone', array_merge(
+            [
+                'path' => "{$proIconsPath}/duotone",
+                'paths' => ["{$proIconsPath}/duotone"]
+            ],
+            $config->get('blade-fontawesome.duotone', [])
+        ));
     }
 }
