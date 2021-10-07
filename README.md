@@ -21,7 +21,7 @@ For a full list of available icons see [the SVG directory](./resources/svg).
 Via Composer
 
 ```bash
-$ composer require owenvoke/blade-fontawesome
+composer require owenvoke/blade-fontawesome
 ```
 
 ## Configuration
@@ -89,7 +89,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 ## Testing
 
 ```bash
-$ composer test
+composer test
 ```
 
 ## Contributing
