@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ## Unreleased
 
+## v1.10.0 - 2021-10-20
+
+### Added
+- Add generator ([#25](https://github.com/owenvoke/blade-fontawesome/pull/25))
+
+### Changed
+- Update to Font Awesome v5.15.4 ([#27](https://github.com/owenvoke/blade-fontawesome/pull/27))
+- Allow synchronising icons from Free and Pro npm packages ([#31](https://github.com/owenvoke/blade-fontawesome/pull/31))
+
 ## v1.9.0 - 2021-05-10
 
 ### Added
