@@ -38,7 +38,7 @@ final class SyncIconsCommand extends Command
             $fullSourcePath = collect([
                 $proSourcePath,
                 $freeSourcePath,
-            ])->filter(fn(string $path): bool => is_dir($path))->first() ?? $proSourcePath;
+            ])->filter(fn (string $path): bool => is_dir($path))->first() ?? $proSourcePath;
         }
 
         if (! is_dir($fullSourcePath)) {
