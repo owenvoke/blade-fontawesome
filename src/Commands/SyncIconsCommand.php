@@ -11,10 +11,10 @@ final class SyncIconsCommand extends Command
 {
     protected $signature = 'blade-fontawesome:sync-icons
                           {directory? : The root directory containing the npm Font Awesome fonts}
-                          {--free : Use the fontawesome-free NPM package}
-                          {--pro : Use the fontawesome-pro NPM package}';
+                          {--free : Use the fontawesome-free npm package}
+                          {--pro : Use the fontawesome-pro npm package}';
 
-    protected $description = 'Synchronise Font Awesome Pro icons from npm';
+    protected $description = 'Synchronise Font Awesome icons from npm';
 
     protected function configure(): void
     {
@@ -42,7 +42,7 @@ final class SyncIconsCommand extends Command
         }
 
         if (! is_dir($fullSourcePath)) {
-            $this->warn("Unable to find Font Awesome Pro SVGs in '{$baseDirectory}'");
+            $this->warn("Unable to find Font Awesome SVGs in '{$baseDirectory}'");
 
             return 1;
         }
@@ -50,7 +50,7 @@ final class SyncIconsCommand extends Command
         $destinationPath = resource_path('icons/blade-fontawesome');
 
         if (! File::copyDirectory($fullSourcePath, $destinationPath)) {
-            $this->warn("Unable to find Font Awesome Pro SVGs in '{$baseDirectory}'");
+            $this->warn("Unable to find Font Awesome SVGs in '{$baseDirectory}'");
 
             return 1;
         }
@@ -67,7 +67,7 @@ final class SyncIconsCommand extends Command
             $sets[] = $directory->getBasename();
         }
 
-        $this->info('Successfully updated Font Awesome Pro SVGs');
+        $this->info('Successfully updated Font Awesome SVGs');
         $this->line("- From: {$fullSourcePath}");
         $this->line("- To: {$destinationPath}");
 
