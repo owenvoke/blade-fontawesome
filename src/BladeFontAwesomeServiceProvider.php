@@ -8,7 +8,7 @@ use BladeUI\Icons\Factory;
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\ServiceProvider;
-use OwenVoke\BladeFontAwesome\Commands\SyncProIconsCommand;
+use OwenVoke\BladeFontAwesome\Commands\SyncIconsCommand;
 
 final class BladeFontAwesomeServiceProvider extends ServiceProvider
 {
@@ -48,7 +48,7 @@ final class BladeFontAwesomeServiceProvider extends ServiceProvider
             ], 'blade-fontawesome-config');
 
             $this->commands([
-                SyncProIconsCommand::class,
+                SyncIconsCommand::class,
             ]);
         }
     }
