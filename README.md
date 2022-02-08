@@ -11,6 +11,14 @@ A package to easily make use of [Font Awesome](https://fontawesome.com) in your 
 
 For a full list of available icons see [the SVG directory](./resources/svg).
 
+## Documentation for older versions
+
+You are reading the documentation for `2.x`.
+
+If you're using Laravel 8 or below, please see the [docs for 1.x][link-1.x-docs].
+
+Please see the [upgrade guide](UPGRADE.md) for information on how to upgrade to the latest version.
+
 ## Requirements
 
 - PHP 8.0 or higher
@@ -132,5 +140,6 @@ Read more about Treeware at [treeware.earth][link-treeware].
 [link-downloads]: https://packagist.org/packages/owenvoke/blade-fontawesome
 [link-treeware]: https://treeware.earth
 [link-treeware-gifting]: https://ecologi.com/owenvoke?gift-trees
+[link-1.x-docs]: https://github.com/owenvoke/blade-fontawesome/blob/1.x/README.md
 [link-author]: https://github.com/owenvoke
 [link-contributors]: ../../contributors
