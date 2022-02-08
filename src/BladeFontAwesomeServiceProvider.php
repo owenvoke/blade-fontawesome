@@ -62,5 +62,10 @@ final class BladeFontAwesomeServiceProvider extends ServiceProvider
         // Pro icon sets
         $factory->add('fontawesome-light', array_merge(['path' => "{$proIconsPath}/light"], $config->get('blade-fontawesome.light', [])));
         $factory->add('fontawesome-duotone', array_merge(['path' => "{$proIconsPath}/duotone"], $config->get('blade-fontawesome.duotone', [])));
+        $factory->add('fontawesome-thin', array_merge(['path' => "{$proIconsPath}/thin"], $config->get('blade-fontawesome.thin', [])));
+
+        if (is_dir("{$proIconsPath}/sharp")) {
+            $factory->add('fontawesome-sharp', array_merge(['path' => "{$proIconsPath}/sharp"], $config->get('blade-fontawesome.sharp', [])));
+        }
     }
 }

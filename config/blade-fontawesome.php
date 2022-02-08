@@ -89,4 +89,34 @@ return [
 
     ],
 
+    'thin' => [
+
+        'prefix' => 'fat',
+
+        'fallback' => '',
+
+        'class' => '',
+
+        'attributes' => [
+            // 'width' => 50,
+            // 'height' => 50,
+        ],
+
+    ],
+
+    'sharp' => [
+
+        'prefix' => 'fash',
+
+        'fallback' => '',
+
+        'class' => '',
+
+        'attributes' => [
+            // 'width' => 50,
+            // 'height' => 50,
+        ],
+
+    ],
+
 ];
