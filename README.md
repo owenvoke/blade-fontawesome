@@ -60,6 +60,23 @@ And even use inline styles:
 <x-fas-cloud style="color: #555"/>
 ```
 
+### Icon Sets
+
+> Note: These are default prefixes for the specified icon sets, these can all be configured [in the `config/blade-fontawesome.php` file](config/blade-fontawesome.php).
+
+**Free Icon Sets**
+
+- Brands (`fab`)
+- Regular (`far`)
+- Solid (`fas`)
+
+**Pro Icon Sets**
+
+- Duotone (`fad`)
+- Light (`fal`)
+- Thin (`fat`)
+- Sharp (`fash`)
+
 ### Raw SVG Icons
 
 If you want to use the raw SVG icons as assets, you can publish them using:
