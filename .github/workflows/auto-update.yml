@@ -5,20 +5,25 @@ on:
   - cron: '0 */6 * * *'
 
 jobs:
-  update:
+  versions:
     runs-on: ubuntu-latest
 
-    name: Update Font Awesome
+    name: Get Versions
+
+    outputs:
+      current: ${{ steps.current-version.outputs.content }}
+      latest: ${{ steps.latest-version.outputs.release }}
 
     steps:
 
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - id: current-version
-      name: Get current version
+      name: Get current Font Awesome version
       uses: juliangruber/read-file-action@v1
       with:
+        trim: true
         path: ./.version
 
     - id: latest-version
@@ -27,18 +32,31 @@ jobs:
       with:
         repository: FortAwesome/Font-Awesome
 
-    - name: Add versions to environment
-      run: |
-        echo "CURRENT_VERSION=${{ steps.current-version.outputs.content }}" >> $GITHUB_ENV
-        echo "LATEST_VERSION=${{ steps.latest-version.outputs.release }}" >> $GITHUB_ENV
-
     - name: Output versions
       run: |
-        echo "Current release: ${{ env.CURRENT_VERSION }}"
-        echo "Latest release: ${{ env.LATEST_VERSION }}"
+        echo "Current release: ${{ steps.current-version.outputs.content }}"
+        echo "Latest release: ${{ steps.latest-version.outputs.release }}"
+
+  update:
+    runs-on: ubuntu-latest
+
+    name: Update Font Awesome
+
+    needs: [versions]
+
+    if: needs.versions.outputs.current != needs.versions.outputs.latest
+
+    env:
+      CURRENT_VERSION: ${{ needs.versions.outputs.current }}
+      LATEST_VERSION: ${{ needs.versions.outputs.latest }}
+      BRANCH: feature/update-${{ needs.versions.outputs.latest }}
+
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v3
 
     - name: Setup PHP
-      if: env.CURRENT_VERSION != env.LATEST_VERSION
       uses: shivammathur/setup-php@v2
       with:
         php-version: 8.0
@@ -46,27 +64,39 @@ jobs:
         coverage: none
 
     - name: Install Dependencies
-      if: env.CURRENT_VERSION != env.LATEST_VERSION
       run: composer update --prefer-stable --no-interaction --prefer-dist --no-progress --ansi
 
     - name: Update to latest version
-      if: env.CURRENT_VERSION != env.LATEST_VERSION
       run: npm install "@fortawesome/fontawesome-free@${{ env.LATEST_VERSION }}" --save-dev
 
     - name: Compile icons to resources directory
-      if: env.CURRENT_VERSION != env.LATEST_VERSION
       run: ./vendor/bin/blade-icons-generate
 
     - name: Update version in ".version"
-      if: env.CURRENT_VERSION != env.LATEST_VERSION
       run: echo ${{ env.LATEST_VERSION }}>./.version
 
+    - name: Commit changes
+      uses: stefanzweifel/git-auto-commit-action@master
+      with:
+        create_branch: true
+        commit_message: "chore: update to Font Awesome v${{ env.LATEST_VERSION }}"
+        commit_author: GitHub Action <noreply@github.com>
+        branch: ${{ env.BRANCH }}
+
+    - name: Update test snapshots
+      run: php vendor/bin/pest -d --update-snapshots
+
+    - name: Commit changes
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: "tests: update snapshots for v${{ env.LATEST_VERSION }}"
+        commit_author: GitHub Action <noreply@github.com>
+        branch: ${{ env.BRANCH }}
+        file_pattern: 'tests/__snapshots__/*'
+
     - name: Create PR for latest version
-      if: env.CURRENT_VERSION != env.LATEST_VERSION
       uses: peter-evans/create-pull-request@v3
       with:
-        commit-message: "chore: update to Font Awesome v${{ env.LATEST_VERSION }}"
-        committer: GitHub Action <noreply@github.com>
         title: "chore: update to Font Awesome v${{ env.LATEST_VERSION }}"
         body: |
           This updates from [${{ env.CURRENT_VERSION }}](https://github.com/FortAwesome/Font-Awesome/releases/tag/${{ env.CURRENT_VERSION }}) to [${{ env.LATEST_VERSION }}](https://github.com/FortAwesome/Font-Awesome/releases/tag/${{ env.LATEST_VERSION }}).
@@ -76,4 +106,5 @@ jobs:
           Please check for any breaking or notable changes before merging.
           - [Changelog](https://github.com/FortAwesome/Font-Awesome/blob/${{ env.LATEST_VERSION }}/CHANGELOG.md#change-log)
           - [Upgrade Guide](https://github.com/FortAwesome/Font-Awesome/blob/${{ env.LATEST_VERSION }}/UPGRADING.md#upgrading-guide)
-        branch: feature/update-${{ env.LATEST_VERSION }}
+        branch: ${{ env.BRANCH }}
+        base: main
