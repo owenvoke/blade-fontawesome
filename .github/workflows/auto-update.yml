@@ -87,6 +87,7 @@ jobs:
       run: php vendor/bin/pest -d --update-snapshots
 
     - name: Commit changes
+      id: commit_snapshots
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: "tests: update snapshots for v${{ env.LATEST_VERSION }}"
@@ -106,5 +107,7 @@ jobs:
           Please check for any breaking or notable changes before merging.
           - [Changelog](https://github.com/FortAwesome/Font-Awesome/blob/${{ env.LATEST_VERSION }}/CHANGELOG.md#change-log)
           - [Upgrade Guide](https://github.com/FortAwesome/Font-Awesome/blob/${{ env.LATEST_VERSION }}/UPGRADING.md#upgrading-guide)
+
+          Please also check that the snapshots were updated successfully in commit: ${{ steps.commit_snapshots.outputs.commit_hash }}.
         branch: ${{ env.BRANCH }}
         base: main
