@@ -76,24 +76,25 @@ jobs:
       run: echo ${{ env.LATEST_VERSION }}>./.version
 
     - name: Commit changes
-      uses: stefanzweifel/git-auto-commit-action@master
+      uses: EndBug/add-and-commit@v9
       with:
-        create_branch: true
-        commit_message: "chore: update to Font Awesome v${{ env.LATEST_VERSION }}"
-        commit_author: GitHub Action <noreply@github.com>
-        branch: ${{ env.BRANCH }}
+        push: false
+        message: "chore: update to Font Awesome v${{ env.LATEST_VERSION }}"
+        author_name: GitHub Actions
+        author_email: noreply@github.com
 
     - name: Update test snapshots
       run: php vendor/bin/pest -d --update-snapshots
 
     - name: Commit changes
       id: commit_snapshots
-      uses: stefanzweifel/git-auto-commit-action@v4
+      uses: EndBug/add-and-commit@v9
       with:
-        commit_message: "tests: update snapshots for v${{ env.LATEST_VERSION }}"
-        commit_author: GitHub Action <noreply@github.com>
-        branch: ${{ env.BRANCH }}
-        file_pattern: 'tests/__snapshots__/*'
+        push: false
+        message: "tests: update snapshots for v${{ env.LATEST_VERSION }}"
+        author_name: GitHub Actions
+        author_email: noreply@github.com
+        add: 'tests/__snapshots__/*'
 
     - name: Create PR for latest version
       uses: peter-evans/create-pull-request@v3
@@ -108,4 +109,4 @@ jobs:
           - [Changelog](https://github.com/FortAwesome/Font-Awesome/blob/${{ env.LATEST_VERSION }}/CHANGELOG.md#change-log)
           - [Upgrade Guide](https://github.com/FortAwesome/Font-Awesome/blob/${{ env.LATEST_VERSION }}/UPGRADING.md#upgrading-guide)
 
-          Please also check that the snapshots were updated successfully in commit: ${{ steps.commit_snapshots.outputs.commit_hash }}.
+          Please also check that the snapshots were updated successfully in commit: ${{ steps.commit_snapshots.outputs.commit_long_sha }}.
