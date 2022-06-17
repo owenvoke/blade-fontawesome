@@ -12,7 +12,7 @@ jobs:
 
     outputs:
       current: ${{ steps.current-version.outputs.content }}
-      latest: ${{ steps.latest-version.outputs.release }}
+      latest: ${{ steps.latest-version.outputs.tag }}
 
     steps:
 
@@ -28,14 +28,15 @@ jobs:
 
     - id: latest-version
       name: Get latest Font Awesome version
-      uses: pozetroninc/github-action-get-latest-release@v0.5.0
+      uses: oprypin/find-latest-tag@v1
       with:
         repository: FortAwesome/Font-Awesome
+        regex: '^\d+\.\d+\.\d+$'
 
     - name: Output versions
       run: |
         echo "Current release: ${{ steps.current-version.outputs.content }}"
-        echo "Latest release: ${{ steps.latest-version.outputs.release }}"
+        echo "Latest release: ${{ steps.latest-version.outputs.tag }}"
 
   update:
     runs-on: ubuntu-latest
