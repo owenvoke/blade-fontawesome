@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ## Unreleased
 
+## v2.2.0 - 2023-02-14
+
+### Added
+- Add support for Laravel 10.x ([#49](https://github.com/owenvoke/blade-fontawesome/pull/49))
+
+### Changed
+- Update to Font Awesome v6.3.0 ([#48](https://github.com/owenvoke/blade-fontawesome/pull/48))
+
 ## v2.1.0 - 2022-10-18
 
 ### Changed
