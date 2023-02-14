@@ -8,6 +8,7 @@ class CompileSvgsAction
 {
     /** @var string */
     private $svgDirectory;
+
     /** @var string */
     private $svgOutputDirectory;
 
