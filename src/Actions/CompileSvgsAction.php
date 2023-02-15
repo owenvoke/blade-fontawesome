@@ -26,10 +26,17 @@ class CompileSvgsAction
             }
 
             /** @var string $svgContent */
+            /** RuntimeExceptions added to handle (potential) errors */
             $svgContent = file_get_contents($svg->getPathname());
+            if ($svgContent === false) {
+                throw new \RuntimeException("Failed to read SVG file: {$svg->getPathname()}");
+            }
             $svgContent = str_replace('<svg ', '<svg fill="currentColor" ', $svgContent);
 
-            file_put_contents("{$this->svgOutputDirectory}/{$svg->getFilename()}", $svgContent);
+            $outputFile = "{$this->svgOutputDirectory}/{$svg->getFilename()}";
+            if (file_put_contents($outputFile, $svgContent) === false) {
+                throw new \RuntimeException("Failed to write SVG file: $outputFile");
+            }
         }
     }
 }
