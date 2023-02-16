@@ -6,7 +6,8 @@
     "require": {
         "php": "^8.0",
         "blade-ui-kit/blade-icons": "^1.5",
-        "illuminate/support": "^9.0|^10.0"
+        "illuminate/support": "^9.0|^10.0",
+        "thecodingmachine/safe": "^2.4"
     },
     "require-dev": {
         "laravel/pint": "^1.5",
@@ -15,8 +16,7 @@
         "phpstan/phpstan": "^1.9.17",
         "spatie/pest-plugin-snapshots": "^1.1",
         "symfony/var-dumper": "^6.0",
-        "thecodingmachine/phpstan-safe-rule": "^1.2",
-        "thecodingmachine/safe": "^2.4"
+        "thecodingmachine/phpstan-safe-rule": "^1.2"
     },
     "autoload": {
         "psr-4": {
