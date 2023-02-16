@@ -14,7 +14,9 @@
         "pestphp/pest": "^1.22.3",
         "phpstan/phpstan": "^1.9.17",
         "spatie/pest-plugin-snapshots": "^1.1",
-        "symfony/var-dumper": "^6.0"
+        "symfony/var-dumper": "^6.0",
+        "thecodingmachine/phpstan-safe-rule": "^1.2",
+        "thecodingmachine/safe": "^2.4"
     },
     "autoload": {
         "psr-4": {
