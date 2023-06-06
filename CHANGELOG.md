@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ## Unreleased
 
+## v2.3.0 - 2023-06-06
+
+### Added
+- Update to use Safe PHP ([#53](https://github.com/owenvoke/blade-fontawesome/pull/53))
+
+### Changed
+- Update to Font Awesome v6.4.0 ([#54](https://github.com/owenvoke/blade-fontawesome/pull/54))
+
 ## v2.2.0 - 2023-02-14
 
 ### Added
