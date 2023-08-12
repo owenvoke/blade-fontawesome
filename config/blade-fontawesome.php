@@ -104,9 +104,39 @@ return [
 
     ],
 
-    'sharp' => [
+    'sharp-light' => [
 
-        'prefix' => 'fash',
+        'prefix' => 'fal-sharp',
+
+        'fallback' => '',
+
+        'class' => '',
+
+        'attributes' => [
+            // 'width' => 50,
+            // 'height' => 50,
+        ],
+
+    ],
+
+    'sharp-regular' => [
+
+        'prefix' => 'far-sharp',
+
+        'fallback' => '',
+
+        'class' => '',
+
+        'attributes' => [
+            // 'width' => 50,
+            // 'height' => 50,
+        ],
+
+    ],
+
+    'sharp-solid' => [
+
+        'prefix' => 'fas-sharp',
 
         'fallback' => '',
 
