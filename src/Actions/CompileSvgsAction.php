@@ -30,6 +30,7 @@ class CompileSvgsAction
             /** @var string $svgContent */
             $svgContent = file_get_contents($svg->getPathname());
             $svgContent = str_replace('<svg ', '<svg fill="currentColor" ', $svgContent);
+            $svgContent = str_replace('height="1em" ', ' ', $svgContent);
 
             file_put_contents("{$this->svgOutputDirectory}/{$svg->getFilename()}", $svgContent);
         }
