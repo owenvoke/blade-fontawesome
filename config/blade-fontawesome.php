@@ -149,4 +149,31 @@ return [
 
     ],
 
+    /*
+    |-----------------------------------------------------------------
+    | Pro Icon Kits
+    |-----------------------------------------------------------------
+    |
+    | The following configuration values are for configuring the
+    | icon sets available as part of Font Awesome Pro.
+    |
+    | If you are not using Font Awesome Pro, this can be removed.
+    |
+    */
+
+    'custom' => [
+
+        'prefix' => 'fak',
+
+        'fallback' => '',
+
+        'class' => '',
+
+        'attributes' => [
+            // 'width' => 50,
+            // 'height' => 50,
+        ],
+
+    ],
+
 ];

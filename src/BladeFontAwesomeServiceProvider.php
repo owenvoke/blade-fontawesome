@@ -67,6 +67,9 @@ final class BladeFontAwesomeServiceProvider extends ServiceProvider
         $factory->add('fontawesome-sharp-light', array_merge(['path' => "{$proIconsPath}/sharp-light"], $config->get('blade-fontawesome.sharp-light', [])));
         $factory->add('fontawesome-sharp-regular', array_merge(['path' => "{$proIconsPath}/sharp-regular"], $config->get('blade-fontawesome.sharp-regular', [])));
         $factory->add('fontawesome-sharp-solid', array_merge(['path' => "{$proIconsPath}/sharp-solid"], $config->get('blade-fontawesome.sharp-solid', [])));
+
+        if (is_dir("{$proIconsPath}/custom")) {
+            $factory->add('fontawesome-custom', array_merge(['path' => "{$proIconsPath}/custom"], $config->get('blade-fontawesome.custom', [])));
         }
     }
 }
