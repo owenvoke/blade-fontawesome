@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ## Unreleased
 
+## v2.4.0 - 2023-08-14
+
+### Added
+- Add support for Sharp icons ([#56](https://github.com/owenvoke/blade-fontawesome/pull/56))
+- Add support for custom Kit icons ([#56](https://github.com/owenvoke/blade-fontawesome/pull/56))
+
+### Changed
+- Update to Font Awesome v6.4.2 ([#55](https://github.com/owenvoke/blade-fontawesome/pull/55))
+
 ## v2.3.0 - 2023-06-06
 
 ### Added
