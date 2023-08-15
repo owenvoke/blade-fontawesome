@@ -55,21 +55,30 @@ final class BladeFontAwesomeServiceProvider extends ServiceProvider
 
     private function registerProIcons(Factory $factory, string $proIconsPath, Repository $config): void
     {
-        $factory->add('fontawesome-brands', array_merge(['path' => "{$proIconsPath}/brands"], $config->get('blade-fontawesome.brands', [])));
-        $factory->add('fontawesome-regular', array_merge(['path' => "{$proIconsPath}/regular"], $config->get('blade-fontawesome.regular', [])));
-        $factory->add('fontawesome-solid', array_merge(['path' => "{$proIconsPath}/solid"], $config->get('blade-fontawesome.solid', [])));
+        $addProIconSet = function (string $name) use ($factory, $proIconsPath, $config): void {
+            if (! is_dir("{$proIconsPath}/{$name}")) {
+                return;
+            }
+
+            $factory->add("fontawesome-{$name}", array_merge(['path' => "{$proIconsPath}/{$name}"], $config->get("blade-fontawesome.{$name}", [])));
+        };
+
+        // Standard icon sets
+        $addProIconSet('brands');
+        $addProIconSet('regular');
+        $addProIconSet('solid');
 
         // Pro icon sets
-        $factory->add('fontawesome-light', array_merge(['path' => "{$proIconsPath}/light"], $config->get('blade-fontawesome.light', [])));
-        $factory->add('fontawesome-duotone', array_merge(['path' => "{$proIconsPath}/duotone"], $config->get('blade-fontawesome.duotone', [])));
-        $factory->add('fontawesome-thin', array_merge(['path' => "{$proIconsPath}/thin"], $config->get('blade-fontawesome.thin', [])));
+        $addProIconSet('light');
+        $addProIconSet('duotone');
+        $addProIconSet('thin');
 
-        $factory->add('fontawesome-sharp-light', array_merge(['path' => "{$proIconsPath}/sharp-light"], $config->get('blade-fontawesome.sharp-light', [])));
-        $factory->add('fontawesome-sharp-regular', array_merge(['path' => "{$proIconsPath}/sharp-regular"], $config->get('blade-fontawesome.sharp-regular', [])));
-        $factory->add('fontawesome-sharp-solid', array_merge(['path' => "{$proIconsPath}/sharp-solid"], $config->get('blade-fontawesome.sharp-solid', [])));
+        // Sharp icon sets
+        $addProIconSet('sharp-light');
+        $addProIconSet('sharp-regular');
+        $addProIconSet('sharp-solid');
 
-        if (is_dir("{$proIconsPath}/custom")) {
-            $factory->add('fontawesome-custom', array_merge(['path' => "{$proIconsPath}/custom"], $config->get('blade-fontawesome.custom', [])));
-        }
+        // Custom icon sets
+        $addProIconSet('custom');
     }
 }
