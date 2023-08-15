@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ## Unreleased
 
+## v2.4.1 - 2023-08-15
+
+### Fixed
+- Add missing directory checks for Pro icons ([#59](https://github.com/owenvoke/blade-fontawesome/pull/59))
+
 ## v2.4.0 - 2023-08-14
 
 ### Added
