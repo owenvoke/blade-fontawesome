@@ -61,8 +61,7 @@ jobs:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: 8.0
-        tools: composer
+        php-version: 8.2
         coverage: none
 
     - name: Install Dependencies
@@ -72,7 +71,7 @@ jobs:
       run: npm install "@fortawesome/fontawesome-free@${{ env.LATEST_VERSION }}" --save-dev
 
     - name: Compile icons to resources directory
-      run: ./vendor/bin/blade-icons-generate
+      run: vendor/bin/blade-icons-generate
 
     - name: Update version in ".version"
       run: echo ${{ env.LATEST_VERSION }}>./.version
@@ -86,7 +85,7 @@ jobs:
         author_email: noreply@github.com
 
     - name: Update test snapshots
-      run: php vendor/bin/pest -d --update-snapshots
+      run: vendor/bin/pest --update-snapshots
 
     - name: Commit changes
       id: commit_snapshots
@@ -96,7 +95,7 @@ jobs:
         message: "tests: update snapshots for v${{ env.LATEST_VERSION }}"
         author_name: GitHub Actions
         author_email: noreply@github.com
-        add: 'tests/__snapshots__/*'
+        add: 'tests/.pest/snapshots/*'
 
     - name: Create PR for latest version
       uses: peter-evans/create-pull-request@v3

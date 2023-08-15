@@ -14,7 +14,6 @@
         "orchestra/testbench": "^8.5",
         "pestphp/pest": "^2.14",
         "phpstan/phpstan": "^1.10",
-        "spatie/pest-plugin-snapshots": "^2.0",
         "symfony/var-dumper": "^6.3",
         "thecodingmachine/phpstan-safe-rule": "^1.2"
     },
