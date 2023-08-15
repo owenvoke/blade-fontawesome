@@ -21,8 +21,8 @@ Please see the [upgrade guide](UPGRADE.md) for information on how to upgrade to 
 
 ## Requirements
 
-- PHP 8.0 or higher
-- Laravel 9.x or higher
+- PHP 8.1 or higher
+- Laravel 10.x or higher
 
 ## Install
 
