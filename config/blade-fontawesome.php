@@ -15,6 +15,10 @@ return [
             // 'height' => 50,
         ],
 
+        'icons' => [
+            //
+        ]
+
     ],
 
     'regular' => [
@@ -30,6 +34,10 @@ return [
             // 'height' => 50,
         ],
 
+        'icons' => [
+            //
+        ]
+
     ],
 
     'solid' => [
@@ -44,6 +52,10 @@ return [
             // 'width' => 50,
             // 'height' => 50,
         ],
+
+        'icons' => [
+            //
+        ]
 
     ],
 
@@ -72,6 +84,10 @@ return [
             // 'height' => 50,
         ],
 
+        'icons' => [
+            //
+        ]
+
     ],
 
     'light' => [
@@ -86,6 +102,10 @@ return [
             // 'width' => 50,
             // 'height' => 50,
         ],
+
+        'icons' => [
+            //
+        ]
 
     ],
 
@@ -102,6 +122,9 @@ return [
             // 'height' => 50,
         ],
 
+        'icons' => [
+            //
+        ]
     ],
 
     'sharp-light' => [
@@ -116,6 +139,10 @@ return [
             // 'width' => 50,
             // 'height' => 50,
         ],
+
+        'icons' => [
+            //
+        ]
 
     ],
 
@@ -132,6 +159,10 @@ return [
             // 'height' => 50,
         ],
 
+        'icons' => [
+            //
+        ]
+
     ],
 
     'sharp-solid' => [
@@ -146,6 +177,10 @@ return [
             // 'width' => 50,
             // 'height' => 50,
         ],
+
+        'icons' => [
+            //
+        ]
 
     ],
 

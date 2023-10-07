@@ -12,7 +12,8 @@ final class SyncIconsCommand extends Command
     protected $signature = 'blade-fontawesome:sync-icons
                           {directory? : The root directory containing the npm Font Awesome fonts}
                           {--free : Use the fontawesome-free npm package}
-                          {--pro : Use the fontawesome-pro npm package}';
+                          {--pro : Use the fontawesome-pro npm package}
+                          {--only : Use the fontawesome-pro npm package}';
 
     protected $description = 'Synchronise Font Awesome icons from npm';
 
@@ -49,8 +50,36 @@ final class SyncIconsCommand extends Command
 
         $destinationPath = resource_path('icons/blade-fontawesome');
 
-        if (! File::copyDirectory($fullSourcePath, $destinationPath)) {
-            $this->warn("Unable to find Font Awesome SVGs in '{$baseDirectory}'");
+        try {
+            if ($this->option('only')) {
+                $family = config('blade-fontawesome');
+
+                unset($family['custom']);
+
+                foreach ($family as $key => $item) {
+
+                    $assetSourcePath = "{$fullSourcePath}/{$key}";
+                    $assetDestinationPath = "{$destinationPath}/{$key}";
+
+                    if (!isset($item['icons'])) {
+                        continue;
+                    }
+
+                    File::deleteDirectory($assetDestinationPath);
+
+                    if (count($item['icons'])) {
+                        File::makeDirectory($assetDestinationPath);
+                    }
+
+                    foreach ($item['icons'] as $icon) {
+                        File::copy("{$assetSourcePath}/{$icon}.svg", "{$assetDestinationPath}/{$icon}.svg");
+                    }
+                }
+            } else {
+                File::copyDirectory($fullSourcePath, $destinationPath);
+            }
+        } catch (\Exception $e) {
+            $this->warn("Unable to find Font Awesome SVGs '{$icon}.svg' icon in '{$assetSourcePath}'");
 
             return 1;
         }
