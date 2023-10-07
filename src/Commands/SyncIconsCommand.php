@@ -13,7 +13,7 @@ final class SyncIconsCommand extends Command
                           {directory? : The root directory containing the npm Font Awesome fonts}
                           {--free : Use the fontawesome-free npm package}
                           {--pro : Use the fontawesome-pro npm package}
-                          {--only : Use the fontawesome-pro npm package}';
+                          {--only : Use only selected icons}';
 
     protected $description = 'Synchronise Font Awesome icons from npm';
 
