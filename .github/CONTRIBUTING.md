@@ -6,7 +6,7 @@ We accept contributions via Pull Requests on [Github](https://github.com/owenvok
 
 ## Pull Requests
 
-- **Laravel Coding Standard** - This is automatically linted by [Style CI](https://styleci.io).
+- **Laravel Coding Standard** - This is automatically linted by [Pint](https://github.com/laravel/pint).
 
 - **Add tests!** - If possible, try to add tests to support your patch.
 
@@ -14,6 +14,6 @@ We accept contributions via Pull Requests on [Github](https://github.com/owenvok
 
 - **Consider our release cycle** - We try to follow [SemVer v2.0.0](https://semver.org). Randomly breaking public APIs is not an option.
 
-- **Create feature branches** - Don't ask us to pull from your master branch.
+- **Create feature branches** - Don't ask us to pull from your main branch.
 
 - **One pull request per feature** - If you want to do more than one thing, send multiple pull requests.
