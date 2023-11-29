@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ## Unreleased
 
+## v2.5.0 - 2023-11-29
+
+### Added
+- Add support for Sharp Thin icons ([#67](https://github.com/owenvoke/blade-fontawesome/pull/67))
+
+### Changed
+- Update to Font Awesome v6.5.0 ([#66](https://github.com/owenvoke/blade-fontawesome/pull/66))
+
 ## v2.4.1 - 2023-08-15
 
 ### Fixed
