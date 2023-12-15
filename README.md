@@ -100,11 +100,19 @@ Blade Font Awesome supports pro icons using npm for downloads.
 
 To use this, [install Font Awesome Pro](https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers#installing-pro) using `npm i --save @fortawesome/fontawesome-pro`, and then run the following Artisan command to add the icons to your `resources` path.
 
+
 ```bash
 php artisan blade-fontawesome:sync-icons --pro
 ```
 
 Blade Font Awesome will then automatically detect and use the pro icons under the `resources/icons/blade-fontawesome` path.
+
+Because of the sheer number of icons, A small performance hit can be seen when using pro icons. If you'd like to mitigate this, you can cache the icons. To do this, run the following Artisan command:
+
+```bash
+php artisan icons:cache
+```
+
 
 ### Blade Icons
 
