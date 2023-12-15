@@ -28,7 +28,7 @@ Please see the [upgrade guide](UPGRADE.md) for information on how to upgrade to 
 
 Via Composer
 
-```bash
+```shell
 composer require owenvoke/blade-fontawesome
 ```
 
@@ -36,7 +36,7 @@ composer require owenvoke/blade-fontawesome
 
 Blade Font Awesome also offers the ability to use features from Blade Icons like default classes, default attributes, etc. If you'd like to configure these, publish the `blade-fontawesome.php` config file:
 
-```bash
+```shell
 php artisan vendor:publish --tag=blade-fontawesome-config
 ```
 
@@ -84,7 +84,7 @@ And even use inline styles:
 
 If you want to use the raw SVG icons as assets, you can publish them using:
 
-```bash
+```shell
 php artisan vendor:publish --tag=blade-fontawesome --force
 ```
 
@@ -100,19 +100,17 @@ Blade Font Awesome supports pro icons using npm for downloads.
 
 To use this, [install Font Awesome Pro](https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers#installing-pro) using `npm i --save @fortawesome/fontawesome-pro`, and then run the following Artisan command to add the icons to your `resources` path.
 
-
-```bash
+```shell
 php artisan blade-fontawesome:sync-icons --pro
 ```
 
 Blade Font Awesome will then automatically detect and use the pro icons under the `resources/icons/blade-fontawesome` path.
 
-Because of the sheer number of icons, A small performance hit can be seen when using pro icons. If you'd like to mitigate this, you can cache the icons. To do this, run the following Artisan command:
+Because of the sheer number of icons, a small performance hit can be seen when using Pro icons. If you'd like to mitigate this, you can cache the icons. To do this, run the following Artisan command:
 
-```bash
+```shell
 php artisan icons:cache
 ```
-
 
 ### Blade Icons
 
@@ -124,7 +122,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Testing
 
-```bash
+```shell
 composer test
 ```
 
