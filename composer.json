@@ -6,12 +6,12 @@
     "require": {
         "php": "^8.1",
         "blade-ui-kit/blade-icons": "^1.5",
-        "illuminate/support": "^10.34",
+        "illuminate/support": "^10.34|^11.0",
         "thecodingmachine/safe": "^2.5"
     },
     "require-dev": {
         "laravel/pint": "^1.13",
-        "orchestra/testbench": "^8.12",
+        "orchestra/testbench": "^8.12|^9.0",
         "pestphp/pest": "^2.26",
         "phpstan/phpstan": "^1.10",
         "symfony/var-dumper": "^6.3",
