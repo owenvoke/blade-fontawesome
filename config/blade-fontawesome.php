@@ -149,6 +149,21 @@ return [
 
     ],
 
+    'sharp-duotone-solid' => [
+    
+        'prefix' => 'fasds',
+    
+        'fallback' => '',
+    
+        'class' => '',
+    
+        'attributes' => [
+            // 'width' => 50,
+            // 'height' => 50,
+        ],
+    
+    ],
+
     'sharp-thin' => [
 
         'prefix' => 'fat:sharp',
