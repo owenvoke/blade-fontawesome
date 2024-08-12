@@ -106,7 +106,21 @@ php artisan blade-fontawesome:sync-icons --pro
 
 Blade Font Awesome will then automatically detect and use the pro icons under the `resources/icons/blade-fontawesome` path.
 
-Because of the sheer number of icons, a small performance hit can be seen when using Pro icons. If you'd like to mitigate this, you can cache the icons. To do this, run the following Artisan command:
+### Font Awesome Kits
+
+Blade Font Awesome supports the use of the npm kits via the `--kit` option.
+
+To use a configured kit, [Font Awesome docs installing kits](https://docs.fontawesome.com/web/setup/packages#kit-package) using `npm install --save '@awesome.me/kit-KIT_CODE@latest'`, and then run the following Artisan command to add the icons to your `resources` path.
+
+```shell
+php artisan blade-fontawesome:sync-icons --kit=KIT_CODE
+```
+
+Blade Font Awesome will then use the icons from the kit to populate the `resources/icons/blade-fontawesome` directory.
+
+### Caching
+
+Because of the sheer number of icons, a small performance hit can be seen when using *pro or kit-supplied* icons. If you'd like to mitigate this, you can cache the icons. To do this, run the following Artisan command:
 
 ```shell
 php artisan icons:cache
