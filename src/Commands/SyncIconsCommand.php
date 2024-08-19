@@ -38,7 +38,7 @@ final class SyncIconsCommand extends Command
         } elseif ($this->hasOption('kit')) {
             $kitId = $this->option('kit');
 
-            if (! $kitId) {
+            if (! is_string($kitId) || empty($kitId)) {
                 $this->warn('You must provide a kit id when using the --kit option');
 
                 return self::FAILURE;
