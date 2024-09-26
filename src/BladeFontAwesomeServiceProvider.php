@@ -77,6 +77,7 @@ final class BladeFontAwesomeServiceProvider extends ServiceProvider
         $addProIconSet('sharp-light');
         $addProIconSet('sharp-regular');
         $addProIconSet('sharp-solid');
+        $addProIconSet('sharp-duotone-solid');
         $addProIconSet('sharp-thin');
 
         // Custom icon sets
