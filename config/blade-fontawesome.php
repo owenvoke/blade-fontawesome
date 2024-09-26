@@ -106,7 +106,7 @@ return [
 
     'sharp-light' => [
 
-        'prefix' => 'falsharp',
+        'prefix' => 'fal:sharp',
 
         'fallback' => '',
 
@@ -121,7 +121,7 @@ return [
 
     'sharp-regular' => [
 
-        'prefix' => 'farsharp',
+        'prefix' => 'far:sharp',
 
         'fallback' => '',
 
@@ -136,7 +136,7 @@ return [
 
     'sharp-solid' => [
 
-        'prefix' => 'fassharp',
+        'prefix' => 'fas:sharp',
 
         'fallback' => '',
 
@@ -151,7 +151,7 @@ return [
 
     'sharp-thin' => [
 
-        'prefix' => 'fatsharp',
+        'prefix' => 'fat:sharp',
 
         'fallback' => '',
 

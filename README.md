@@ -75,9 +75,10 @@ And even use inline styles:
 - Duotone (`fad`)
 - Light (`fal`)
 - Thin (`fat`)
-- Sharp Regular (`far-sharp`)
-- Sharp Light (`fal-sharp`)
-- Sharp Solid (`fas-sharp`)
+- Sharp Regular (`far:sharp`)
+- Sharp Light (`fal:sharp`)
+- Sharp Solid (`fas:sharp`)
+- Sharp Thin (`fat:sharp`)
 - Custom Kit Icons (`fak`)
 
 ### Raw SVG Icons
