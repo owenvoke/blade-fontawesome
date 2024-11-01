@@ -151,7 +151,7 @@ return [
 
     'sharp-duotone-solid' => [
     
-        'prefix' => 'fasds',
+        'prefix' => 'fad:sharp',
     
         'fallback' => '',
     
