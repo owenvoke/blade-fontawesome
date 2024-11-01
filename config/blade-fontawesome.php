@@ -150,18 +150,18 @@ return [
     ],
 
     'sharp-duotone-solid' => [
-    
+
         'prefix' => 'fad:sharp',
-    
+
         'fallback' => '',
-    
+
         'class' => '',
-    
+
         'attributes' => [
             // 'width' => 50,
             // 'height' => 50,
         ],
-    
+
     ],
 
     'sharp-thin' => [
