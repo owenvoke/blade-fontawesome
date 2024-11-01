@@ -10,9 +10,10 @@ use OwenVoke\BladeFontAwesome\Actions\CompileSvgsAction;
 final class SyncIconsCommand extends Command
 {
     protected $signature = 'blade-fontawesome:sync-icons
-                          {directory? : The root directory containing the npm Font Awesome fonts}
+                          {directory? : The root directory containing the node_modules directory}
                           {--free : Use the fontawesome-free npm package}
-                          {--pro : Use the fontawesome-pro npm package}';
+                          {--pro : Use the fontawesome-pro npm package}
+                          {--kit= : The Font Awesome kit id to use (these can be free or pro)}';
 
     protected $description = 'Synchronise Font Awesome icons from npm';
 
@@ -34,6 +35,16 @@ final class SyncIconsCommand extends Command
             $fullSourcePath = $proSourcePath;
         } elseif ($this->option('free')) {
             $fullSourcePath = $freeSourcePath;
+        } elseif ($this->hasOption('kit')) {
+            $kitId = $this->option('kit');
+
+            if (! is_string($kitId) || empty($kitId)) {
+                $this->warn('You must provide a kit id when using the --kit option');
+
+                return self::FAILURE;
+            }
+
+            $fullSourcePath = "{$baseDirectory}/node_modules/@awesome.me/kit-{$kitId}/icons/svgs";
         } else {
             $fullSourcePath = collect([
                 $proSourcePath,
@@ -42,17 +53,17 @@ final class SyncIconsCommand extends Command
         }
 
         if (! is_dir($fullSourcePath)) {
-            $this->warn("Unable to find Font Awesome SVGs in '{$baseDirectory}'");
+            $this->warn("Unable to find Font Awesome SVGs in '{$fullSourcePath}'");
 
-            return 1;
+            return self::FAILURE;
         }
 
         $destinationPath = resource_path('icons/blade-fontawesome');
 
         if (! File::copyDirectory($fullSourcePath, $destinationPath)) {
-            $this->warn("Unable to find Font Awesome SVGs in '{$baseDirectory}'");
+            $this->warn("Unable to copy Font Awesome SVGs from '{$fullSourcePath}' to '{$destinationPath}'");
 
-            return 1;
+            return self::FAILURE;
         }
 
         $sets = [];
@@ -73,6 +84,6 @@ final class SyncIconsCommand extends Command
 
         $this->line("\nSets copied: ".implode(', ', $sets));
 
-        return 0;
+        return self::SUCCESS;
     }
 }
