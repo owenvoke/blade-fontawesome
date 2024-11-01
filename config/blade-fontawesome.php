@@ -106,7 +106,7 @@ return [
 
     'sharp-light' => [
 
-        'prefix' => 'fal-sharp',
+        'prefix' => 'fal:sharp',
 
         'fallback' => '',
 
@@ -121,7 +121,7 @@ return [
 
     'sharp-regular' => [
 
-        'prefix' => 'far-sharp',
+        'prefix' => 'far:sharp',
 
         'fallback' => '',
 
@@ -136,7 +136,7 @@ return [
 
     'sharp-solid' => [
 
-        'prefix' => 'fas-sharp',
+        'prefix' => 'fas:sharp',
 
         'fallback' => '',
 
@@ -151,7 +151,7 @@ return [
 
     'sharp-duotone-solid' => [
     
-        'prefix' => 'fasds',
+        'prefix' => 'fad:sharp',
     
         'fallback' => '',
     
@@ -166,7 +166,7 @@ return [
 
     'sharp-thin' => [
 
-        'prefix' => 'fat-sharp',
+        'prefix' => 'fat:sharp',
 
         'fallback' => '',
 
