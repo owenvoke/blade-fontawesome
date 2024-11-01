@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ## Unreleased
 
+## v2.7.0 - 2024-11-01
+
+### Added
+- Update Font Awesome Sharp prefixes ([#77](https://github.com/owenvoke/blade-fontawesome/pull/77) and [#85](https://github.com/owenvoke/blade-fontawesome/pull/85))
+- Add support for Font Awesome Kits ([#83](https://github.com/owenvoke/blade-fontawesome/pull/83))
+- Add support for Duotone Solid Sharp icons ([#81](https://github.com/owenvoke/blade-fontawesome/pull/81))
+
+### Changed
+- Update to Font Awesome v6.6.0 ([#80](https://github.com/owenvoke/blade-fontawesome/pull/80))
+
 ## v2.6.0 - 2024-02-27
 
 ### Added
