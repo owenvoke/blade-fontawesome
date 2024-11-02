@@ -79,6 +79,7 @@ And even use inline styles:
 - Sharp Light (`fal:sharp`)
 - Sharp Solid (`fas:sharp`)
 - Sharp Thin (`fat:sharp`)
+- Sharp Duotone (`fad:sharp`)
 - Custom Kit Icons (`fak`)
 
 ### Raw SVG Icons
