@@ -3,17 +3,13 @@
 namespace OwenVoke\BladeFontAwesome\Actions;
 
 use DirectoryIterator;
-
-use function Safe\file_get_contents;
-use function Safe\file_put_contents;
+use RuntimeException;
 
 class CompileSvgsAction
 {
-    /** @var string */
-    private $svgDirectory;
+    private string $svgDirectory;
 
-    /** @var string */
-    private $svgOutputDirectory;
+    private string $svgOutputDirectory;
 
     public function __construct(string $svgDirectory, string $svgOutputDirectory)
     {
@@ -28,12 +24,20 @@ class CompileSvgsAction
                 continue;
             }
 
-            /** @var string $svgContent */
             $svgContent = file_get_contents($svg->getPathname());
+
+            if ($svgContent === false) {
+                throw new RuntimeException('Unable to read SVG file.');
+            }
+
             $svgContent = str_replace('<svg ', '<svg fill="currentColor" ', $svgContent);
             $svgContent = str_replace('height="1em" ', ' ', $svgContent);
 
-            file_put_contents("{$this->svgOutputDirectory}/{$svg->getFilename()}", $svgContent);
+            $result = file_put_contents("{$this->svgOutputDirectory}/{$svg->getFilename()}", $svgContent);
+
+            if ($result === false) {
+                throw new RuntimeException('Unable to write SVG file.');
+            }
         }
     }
 }
