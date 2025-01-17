@@ -73,6 +73,9 @@ And even use inline styles:
 **Pro Icon Sets**
 
 - Duotone (`fad`)
+- Duotone Regular (`fad:regular`)
+- Duotone Light (`fad:light`)
+- Duotone Thin (`fad:thin`)
 - Light (`fal`)
 - Thin (`fat`)
 - Sharp Regular (`far:sharp`)
@@ -80,6 +83,9 @@ And even use inline styles:
 - Sharp Solid (`fas:sharp`)
 - Sharp Thin (`fat:sharp`)
 - Sharp Duotone (`fad:sharp`)
+- Sharp Duotone Regular (`fasd:regular`)
+- Sharp Duotone Light (`fasd:light`)
+- Sharp Duotone Thin (`fasd:thin`)
 - Custom Kit Icons (`fak`)
 
 ### Raw SVG Icons
