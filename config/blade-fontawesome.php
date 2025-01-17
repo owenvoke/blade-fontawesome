@@ -74,6 +74,51 @@ return [
 
     ],
 
+    'duotone-regular' => [
+
+        'prefix' => 'fad:regular',
+
+        'fallback' => '',
+
+        'class' => '',
+
+        'attributes' => [
+            // 'width' => 50,
+            // 'height' => 50,
+        ],
+
+    ],
+
+    'duotone-light' => [
+
+        'prefix' => 'fad:light',
+
+        'fallback' => '',
+
+        'class' => '',
+
+        'attributes' => [
+            // 'width' => 50,
+            // 'height' => 50,
+        ],
+
+    ],
+
+    'duotone-thin' => [
+
+        'prefix' => 'fad:thin',
+
+        'fallback' => '',
+
+        'class' => '',
+
+        'attributes' => [
+            // 'width' => 50,
+            // 'height' => 50,
+        ],
+
+    ],
+
     'light' => [
 
         'prefix' => 'fal',
@@ -152,6 +197,51 @@ return [
     'sharp-duotone-solid' => [
 
         'prefix' => 'fad:sharp',
+
+        'fallback' => '',
+
+        'class' => '',
+
+        'attributes' => [
+            // 'width' => 50,
+            // 'height' => 50,
+        ],
+
+    ],
+
+    'sharp-duotone-regular' => [
+
+        'prefix' => 'fasd:regular',
+
+        'fallback' => '',
+
+        'class' => '',
+
+        'attributes' => [
+            // 'width' => 50,
+            // 'height' => 50,
+        ],
+
+    ],
+
+    'sharp-duotone-light' => [
+
+        'prefix' => 'fasd:light',
+
+        'fallback' => '',
+
+        'class' => '',
+
+        'attributes' => [
+            // 'width' => 50,
+            // 'height' => 50,
+        ],
+
+    ],
+
+    'sharp-duotone-thin' => [
+
+        'prefix' => 'fasd:thin',
 
         'fallback' => '',
 
