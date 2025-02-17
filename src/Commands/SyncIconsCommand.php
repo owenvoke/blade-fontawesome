@@ -23,7 +23,7 @@ final class SyncIconsCommand extends Command
         $this->setAliases(['blade-fontawesome:sync-pro']);
     }
 
-    public function handle(): ?int
+    public function handle(): int
     {
         /** @phpstan-ignore-next-line */
         $baseDirectory = (string) ($this->argument('directory') ?? base_path());
