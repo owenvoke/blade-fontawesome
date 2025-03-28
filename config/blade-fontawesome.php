@@ -191,7 +191,7 @@ return [
     |
     */
 
-    'custom' => [
+    'custom-icons' => [
 
         'prefix' => 'fak',
 
