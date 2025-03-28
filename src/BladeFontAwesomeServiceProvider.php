@@ -55,12 +55,14 @@ final class BladeFontAwesomeServiceProvider extends ServiceProvider
 
     private function registerProIcons(Factory $factory, string $proIconsPath, Repository $config): void
     {
-        $addProIconSet = function (string $name) use ($factory, $proIconsPath, $config): void {
-            if (! is_dir("{$proIconsPath}/{$name}")) {
+        $addProIconSet = function (string $name, ?string $path = null) use ($factory, $proIconsPath, $config): void {
+            $path ??= $name;
+
+            if (! is_dir("{$proIconsPath}/{$path}")) {
                 return;
             }
 
-            $factory->add("fontawesome-{$name}", array_merge(['path' => "{$proIconsPath}/{$name}"], $config->get("blade-fontawesome.{$name}", [])));
+            $factory->add("fontawesome-{$name}", array_merge(['path' => "{$proIconsPath}/{$path}"], $config->get("blade-fontawesome.{$name}", [])));
         };
 
         // Standard icon sets
@@ -81,6 +83,6 @@ final class BladeFontAwesomeServiceProvider extends ServiceProvider
         $addProIconSet('sharp-thin');
 
         // Custom icon sets
-        $addProIconSet('custom');
+        $addProIconSet('custom', 'custom-icons');
     }
 }
