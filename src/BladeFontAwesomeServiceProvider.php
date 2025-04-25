@@ -73,6 +73,9 @@ final class BladeFontAwesomeServiceProvider extends ServiceProvider
         // Pro icon sets
         $addProIconSet('light');
         $addProIconSet('duotone');
+        $addProIconSet('duotone-regular');
+        $addProIconSet('duotone-light');
+        $addProIconSet('duotone-thin');
         $addProIconSet('thin');
 
         // Sharp icon sets
@@ -80,6 +83,9 @@ final class BladeFontAwesomeServiceProvider extends ServiceProvider
         $addProIconSet('sharp-regular');
         $addProIconSet('sharp-solid');
         $addProIconSet('sharp-duotone-solid');
+        $addProIconSet('sharp-duotone-regular');
+        $addProIconSet('sharp-duotone-light');
+        $addProIconSet('sharp-duotone-thin');
         $addProIconSet('sharp-thin');
 
         // Custom icon sets
