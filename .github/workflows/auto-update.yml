@@ -18,7 +18,7 @@ jobs:
     steps:
 
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
 
     - id: current-version
       name: Get current Font Awesome version
@@ -56,12 +56,12 @@ jobs:
     steps:
 
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
 
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: 8.2
+        php-version: 8.4
         coverage: none
 
     - name: Install Dependencies
@@ -98,7 +98,7 @@ jobs:
         add: 'tests/.pest/snapshots/*'
 
     - name: Create PR for latest version
-      uses: peter-evans/create-pull-request@v3
+      uses: peter-evans/create-pull-request@v7
       with:
         title: "chore: update to Font Awesome v${{ env.LATEST_VERSION }}"
         branch: "feature/auto-update-${{ env.LATEST_VERSION }}"
