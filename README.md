@@ -44,7 +44,7 @@ php artisan vendor:publish --tag=blade-fontawesome-config
 
 ## Usage
 
-Icons can be used a self-closing Blade components which will be compiled to SVG icons:
+Icons can be used as self-closing Blade components which will be compiled to SVG icons:
 
 ```blade
 <x-fas-cloud/>
@@ -83,6 +83,8 @@ And even use inline styles:
 - Sharp Thin (`fat:sharp`)
 - Sharp Duotone (`fad:sharp`)
 - Custom Kit Icons (`fak`)
+
+To remove any icon set, remove it from the `blade-fontawesome` config file.
 
 ### Raw SVG Icons
 
