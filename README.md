@@ -84,7 +84,11 @@ And even use inline styles:
 - Sharp Duotone (`fad:sharp`)
 - Custom Kit Icons (`fak`)
 
-To remove any icon set, remove it from the `blade-fontawesome` config file.
+To remove any pro icon sets, set the value to `false` in the `blade-fontawesome` config file. For example:
+
+```php
+'sharp-regular' => false,
+```
 
 ### Raw SVG Icons
 
