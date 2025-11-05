@@ -5,7 +5,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.4",
-        "blade-ui-kit/blade-icons": "^1.5",
+        "blade-ui-kit/blade-icons": "^1.8",
         "illuminate/support": "^12.0"
     },
     "require-dev": {
