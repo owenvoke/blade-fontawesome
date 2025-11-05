@@ -20,7 +20,11 @@ This does not affect the usage of the icons, which will continue to use the `fak
 
 Blade FontAwesome will now load all icon sets defined in your `config/blade-fontawesome.php` file.
 
-To remove an icon set, remove it from the main config array.
+To remove a default pro icon set, set the value to `false`. For example:
+
+```php
+'sharp-regular' => false,
+```
 
 ### Laravel 12 required
 
