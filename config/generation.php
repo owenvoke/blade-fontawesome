@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 $svgNormalization = static function (string $tempFilepath, array $iconSet) {
     /** @var string $svgContent */
     $svgContent = file_get_contents($tempFilepath);

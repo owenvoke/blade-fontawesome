@@ -55,7 +55,7 @@ final class BladeFontAwesomeServiceProvider extends ServiceProvider
 
     private function registerProIcons(Factory $factory, string $proIconsPath, Repository $config): void
     {
-        $addProIconSet = function (string $name, ?string $path = null) use ($factory, $proIconsPath, $config): void {
+        $addProIconSet = function (string $name, string|null $path = null) use ($factory, $proIconsPath, $config): void {
             $path ??= $name;
 
             if (! is_dir("{$proIconsPath}/{$path}")) {
