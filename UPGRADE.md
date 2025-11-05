@@ -1,5 +1,19 @@
 # Upgrade Guide
 
+## 3.x
+
+### Font Awesome 7
+
+This major release updates to Font Awesome 7.x, if you are using Font Awesome Pro icons, these should be updated.
+
+### Laravel 12 required
+
+Laravel `12` or higher is now required.
+
+### PHP 8.4 required
+
+PHP `8.4` or higher is now required.
+
 ## 2.x
 
 ### Font Awesome 6
