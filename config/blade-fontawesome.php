@@ -181,7 +181,7 @@ return [
 
     ],
 
-    'custom' => [
+    'custom-icons' => [
 
         'prefix' => 'fak',
 
@@ -193,10 +193,6 @@ return [
             // 'width' => 50,
             // 'height' => 50,
         ],
-
-        // The `override_path` is used when registering the custom icon set.
-        // This overrides the path in `icons/blade-fontawesome` when the icon key doesn't match the directory.
-        'override_path' => 'custom-icons',
 
     ],
 

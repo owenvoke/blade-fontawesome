@@ -8,6 +8,16 @@ This major release updates to Font Awesome 7.x, if you are using Font Awesome Pr
 
 ### Configuration
 
+#### Custom Kit Icons
+
+The config key for custom icons has changed from `custom` to `custom-icons`.
+
+Please update your config to make this change if you are using custom icons.
+
+This does not affect the usage of the icons, which will continue to use the `fak` prefix.
+
+#### Icon Loading
+
 Blade FontAwesome will now load all icon sets defined in your `config/blade-fontawesome.php` file.
 
 To remove an icon set, remove it from the main config array.

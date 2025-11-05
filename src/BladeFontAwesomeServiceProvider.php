@@ -57,19 +57,11 @@ final class BladeFontAwesomeServiceProvider extends ServiceProvider
     private function registerProIcons(Factory $factory, string $proIconsPath, ConfigRepository $config): void
     {
         foreach ($config->get('blade-fontawesome', []) as $name => $iconSetConfig) {
-            if (! is_array($iconSetConfig)) {
-                logger()->warning("Invalid configuration provided for the Blade FontAwesome '{$name}' icon set.");
-
+            if (! is_dir("{$proIconsPath}/{$name}")) {
                 continue;
             }
 
-            $path = $iconSetConfig['override_path'] ?? $name;
-
-            if (! is_dir("{$proIconsPath}/{$path}")) {
-                continue;
-            }
-
-            $factory->add("fontawesome-{$name}", array_merge(['path' => "{$proIconsPath}/{$path}"], $config->get("blade-fontawesome.{$name}", [])));
+            $factory->add("fontawesome-{$name}", array_merge(['path' => "{$proIconsPath}/{$name}"], $config->get("blade-fontawesome.{$name}", [])));
         }
     }
 }
