@@ -6,6 +6,12 @@
 
 This major release updates to Font Awesome 7.x, if you are using Font Awesome Pro icons, these should be updated.
 
+### Configuration
+
+Blade FontAwesome will now load all icon sets defined in your `config/blade-fontawesome.php` file.
+
+To remove an icon set, remove it from the main config array.
+
 ### Laravel 12 required
 
 Laravel `12` or higher is now required.
