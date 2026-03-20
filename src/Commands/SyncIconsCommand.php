@@ -75,7 +75,7 @@ final class SyncIconsCommand extends Command
                 continue;
             }
 
-            new CompileSvgsAction($directory->getPathname(), $directory->getPathname())->execute();
+            (new CompileSvgsAction($directory->getPathname(), $directory->getPathname()))->execute();
 
             $sets[] = $directory->getBasename();
         }
