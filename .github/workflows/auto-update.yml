@@ -12,32 +12,26 @@ jobs:
     name: Get Versions
 
     outputs:
-      current: ${{ steps.current-version.outputs.content }}
-      latest: ${{ steps.latest-version.outputs.tag }}
+      current: ${{ steps.current-version.outputs.version }}
+      latest: ${{ steps.latest-version.outputs.version }}
 
     steps:
 
     - name: Checkout
-      uses: actions/checkout@v5
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
     - id: current-version
       name: Get current Font Awesome version
-      uses: juliangruber/read-file-action@v1
-      with:
-        trim: true
-        path: ./.version
+      run: echo "version=$(tr -d '[:space:]' < .version)" >> "$GITHUB_OUTPUT"
 
     - id: latest-version
       name: Get latest Font Awesome version
-      uses: oprypin/find-latest-tag@v1
-      with:
-        repository: FortAwesome/Font-Awesome
-        regex: '^\d+\.\d+\.\d+$'
+      run: echo "version=$(npm view @fortawesome/fontawesome-free version)" >> "$GITHUB_OUTPUT"
 
     - name: Output versions
       run: |
-        echo "Current release: ${{ steps.current-version.outputs.content }}"
-        echo "Latest release: ${{ steps.latest-version.outputs.tag }}"
+        echo "Current release: ${{ steps.current-version.outputs.version }}"
+        echo "Latest release: ${{ steps.latest-version.outputs.version }}"
 
   update:
     runs-on: ubuntu-latest
@@ -56,10 +50,10 @@ jobs:
     steps:
 
     - name: Checkout
-      uses: actions/checkout@v5
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
     - name: Setup PHP
-      uses: shivammathur/setup-php@v2
+      uses: shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240 # 2.37.2
       with:
         php-version: 8.4
         coverage: none
@@ -76,29 +70,28 @@ jobs:
     - name: Update version in ".version"
       run: echo ${{ env.LATEST_VERSION }}>./.version
 
+    - name: Configure Git
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
     - name: Commit changes
-      uses: EndBug/add-and-commit@v9
-      with:
-        push: false
-        message: "chore: update to Font Awesome v${{ env.LATEST_VERSION }}"
-        author_name: GitHub Actions
-        author_email: noreply@github.com
+      run: |
+        git add -A
+        git commit -m "chore: update to Font Awesome v${{ env.LATEST_VERSION }}"
 
     - name: Update test snapshots
       run: vendor/bin/pest --update-snapshots
 
     - name: Commit changes
       id: commit_snapshots
-      uses: EndBug/add-and-commit@v9
-      with:
-        push: false
-        message: "tests: update snapshots for v${{ env.LATEST_VERSION }}"
-        author_name: GitHub Actions
-        author_email: noreply@github.com
-        add: 'tests/.pest/snapshots/*'
+      run: |
+        git add tests/.pest/snapshots
+        git commit -m "tests: update snapshots for v${{ env.LATEST_VERSION }}"
+        echo "commit_long_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
     - name: Create PR for latest version
-      uses: peter-evans/create-pull-request@v7
+      uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
       with:
         title: "chore: update to Font Awesome v${{ env.LATEST_VERSION }}"
         branch: "feature/auto-update-${{ env.LATEST_VERSION }}"
